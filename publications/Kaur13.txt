@@ -1,0 +1,8 @@
+@mastersthesis{Kaur13:msthesis,
+  author       = {Parneet Kaur}, 
+  title        = {Automated bridge deck evaluation using ground penetrating radar scans.},
+  school       = {Rutgers University},
+  year         = 2013,
+  month        = 10,
+  doi	       = {http://dx.doi.org/doi:10.7282/T37M05Z3},
+}
