@@ -109,7 +109,7 @@
     <div class="page-feature-header overlay">
       
       <div class="page-image">
-        <img src="/images/image-not-available-1200x400.png" class="page-feature-image" alt="Evaluation of Branch Prediction Strategies" itemprop="image">
+        <img src="/images/branch-prediction-feature.png" class="page-feature-image" alt="Evaluation of Branch Prediction Strategies" itemprop="image">
         
       </div><!-- /.page-image -->
       
@@ -141,7 +141,27 @@
     <div class="inner-wrap">
       <div id="content" class="page-content" itemprop="articleBody">
         <h2 id="abstract">Abstract</h2>
-<p>To be updated</p>
+
+<p>Modern computer architectures implement instruction-level, data-level and thread
+level parallelism, among other methods, to increase the instructions per cycle (IPC)
+and decrease the program execution time. In instruction level parallelism, multiple
+instructions can be overlapped using pipelining. The pipeline must have a continuous
+flow of instructions in order to perform effectively. If the instructions are fetched
+sequentially in a pipeline, jumps and conditional branch instructions can cause control
+hazards. Consequently, branch instructions limit the effectiveness of parallelism.
+A dedicated hardware is provided in modern day processors to predict the direction
+of the branches before the branch decision is actually known. If the branch direction
+is predicted correctly, the processor continues a smooth flow of instructions. However,
+branch misprediction can lead to the penalties such as flushing the pipeline, calculation
+of previous addresses and registers and decreased IPC. The more the number of stages
+in a pipeline, more is the misprediction latency. Thus, it is very important to predict
+the branch direction correctly. </p>
+
+<p>In this project, we implement two branch prediction strategies proposed by James
+Smith in his paper titled ‘A Study of Branch Prediction Strategies’ (Smith-strategy6 and Smith-strategy7). Using the Simplescalar simulator, five benchmarks are used to evaluate and compare these branch prediction strategies. The performance of branch predictors is analyzed on the given benchmarks to identify the behavior of the benchmarks which can be used to improve the prediction. The conflict due to multiple address locations hasing to the same index location in a history table causes aliasing and increases the misprediction rate. Based on our analysis, we propose these predictors to minimize aliasing:
+1) Coincide Predictor: Aims to overcome the mispredictions due to conflict of two adresses and utilizes opcode history table and static opcode decisions derived from given benchmarks, 2) Combinational Predictor: combines two-level predictor and Smith-strategy7. In addition, a different hash function for Smith-strategy7 is explored.</p>
+
+<p>All the strategies are compared to the default Bimodal strategy in Simplescalar. While Smith-strategy6 is a poor predictor, Smith-strategy7 with 3-bit counter (or more) performs better by decreasing the misprediction rate for given benchmarks. Both the proposed predictors are marginally better for three out of five given benchmarks as they decrease the misprediction rate and increase the IPC.</p>
 
         <hr />
         <footer class="page-footer">
@@ -171,6 +191,9 @@
 Parneet Kaur, Anvita Patel, Saie Saraf for ECE563-Computer Architecture-I with Dr. Naghmeh Karimi
 
 <h3>Report</h3>
+[<a href="http://parneetk.github.io/docs/2014-report-branch-prediction.pdf" target="_blank">PDF</a>]
+
+<h3>Code</h3>
 To be updated.
       
     </div><!-- /.sidebar -->
