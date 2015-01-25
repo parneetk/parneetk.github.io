@@ -11,7 +11,7 @@
 <subtitle>Personal website of Parneet Kaur.</subtitle>
 <link href="http://parneetk.github.io/atom.xml" rel="self"/>
 <link href="http://parneetk.github.io/" rel="alternate" type="text/html"/>
-<updated>2015-01-19T19:05:21-05:00</updated>
+<updated>2015-01-24T21:31:22-05:00</updated>
 <id>http://parneetk.github.io/</id>
 <author>
   <name>Parneet Kaur</name>
@@ -32,7 +32,8 @@
   </author>
   <content type="html">
     &lt;img src=&quot;http://parneetk.github.io/images/image-not-available-1200x400.png&quot; alt=&quot;Quantifying skin appearance feature&quot;&gt;&lt;br/&gt;
-    &lt;p&gt;To be updated.&lt;/p&gt;
+    &lt;p&gt;Currently I am a graduate assistant in the computer vision lab supervised by &lt;a href=&quot;http://www.ece.rutgers.edu/~kdana/Home.html&quot;&gt;Dr. Kristin J. Dana&lt;/a&gt;. I am continuing with my interests of surface analysis by studying models of skin appearance for quantitative dermatology. Currently, I am exploring high-dimensional clustering methods to cluster skin appearance descriptors. This research is funded by industry. The initial results have been promising and a manuscript is being prepared. 
+More about it soon!&lt;/p&gt;
 
     &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/research/quantifying-skin-appearance/&quot; rel=&quot;nofollow&quot;&gt;Quantifying skin appearance&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
   </content>
@@ -113,63 +114,6 @@ Smith in his paper titled ‘A Study of Branch Prediction Strategies’ (Smith-s
 
 
     &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/research/automated-bridge-deck-evaluation/&quot; rel=&quot;nofollow&quot;&gt;Automated Bridge Deck Evaluation&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
-  </content>
-</entry>
-
-<entry>
-  <title>Panorama Creation</title>
-  <link href="http://parneetk.github.io/projects/panorama/"/>
-  <updated>2013-05-14T00:00:00-04:00</updated>
-  <id>http://parneetk.github.io/projects/panorama</id>
-  <author>
-    <name>Parneet Kaur</name>
-    <uri>http://parneetk.github.io/</uri>
-    
-  </author>
-  <content type="html">
-    &lt;img src=&quot;http://parneetk.github.io/images/panorama-feature.png&quot; alt=&quot;Panorama Creation feature&quot;&gt;&lt;br/&gt;
-    &lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
-&lt;p&gt;To be updated.&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/projects/panorama/&quot; rel=&quot;nofollow&quot;&gt;Panorama Creation&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
-  </content>
-</entry>
-
-<entry>
-  <title>Fun with images using Homography</title>
-  <link href="http://parneetk.github.io/projects/fun-homography/"/>
-  <updated>2012-12-15T00:00:00-05:00</updated>
-  <id>http://parneetk.github.io/projects/fun-homography</id>
-  <author>
-    <name>Parneet Kaur</name>
-    <uri>http://parneetk.github.io/</uri>
-    
-  </author>
-  <content type="html">
-    &lt;img src=&quot;http://parneetk.github.io/images/image-not-available-1200x400.png&quot; alt=&quot;Fun with images using Homography feature&quot;&gt;&lt;br/&gt;
-    &lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
-&lt;p&gt;To be updated.&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/projects/fun-homography/&quot; rel=&quot;nofollow&quot;&gt;Fun with images using Homography&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
-  </content>
-</entry>
-
-<entry>
-  <title>2D Motion Estimation</title>
-  <link href="http://parneetk.github.io/projects/2d-motion-estimation/"/>
-  <updated>2012-12-14T00:00:00-05:00</updated>
-  <id>http://parneetk.github.io/projects/2d-motion-estimation</id>
-  <author>
-    <name>Parneet Kaur</name>
-    <uri>http://parneetk.github.io/</uri>
-    
-  </author>
-  <content type="html">
-    &lt;img src=&quot;http://parneetk.github.io/images/image-not-available-1200x400.png&quot; alt=&quot;2D Motion Estimation feature&quot;&gt;&lt;br/&gt;
-    &lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
-&lt;p&gt;To be updated.&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/projects/2d-motion-estimation/&quot; rel=&quot;nofollow&quot;&gt;2D Motion Estimation&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
   </content>
 </entry>
 
