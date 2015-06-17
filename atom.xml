@@ -11,7 +11,7 @@
 <subtitle>Personal website of Parneet Kaur.</subtitle>
 <link href="http://parneetk.github.io/atom.xml" rel="self"/>
 <link href="http://parneetk.github.io/" rel="alternate" type="text/html"/>
-<updated>2015-02-05T19:55:11-05:00</updated>
+<updated>2015-06-17T11:32:21-04:00</updated>
 <id>http://parneetk.github.io/</id>
 <author>
   <name>Parneet Kaur</name>
@@ -21,21 +21,39 @@
 
 
 <entry>
-  <title>Quantifying skin appearance</title>
-  <link href="http://parneetk.github.io/research/quantifying-skin-appearance/"/>
+  <title>Skin Appearance and Skin Microbiome</title>
+  <link href="http://parneetk.github.io/research/microbiome-skin-appearance/"/>
   <updated>2014-12-16T00:00:00-05:00</updated>
-  <id>http://parneetk.github.io/research/quantifying-skin-appearance</id>
+  <id>http://parneetk.github.io/research/microbiome-skin-appearance</id>
   <author>
     <name>Parneet Kaur</name>
     <uri>http://parneetk.github.io/</uri>
     
   </author>
   <content type="html">
-    &lt;img src=&quot;http://parneetk.github.io/images/image-not-available-1200x400.png&quot; alt=&quot;Quantifying skin appearance feature&quot;&gt;&lt;br/&gt;
-    &lt;p&gt;Currently I am a graduate assistant in the computer vision lab supervised by &lt;a href=&quot;http://www.ece.rutgers.edu/~kdana/Home.html&quot;&gt;Dr. Kristin J. Dana&lt;/a&gt;. I am continuing with my interests of surface analysis by studying models of skin appearance for quantitative dermatology. Currently, I am exploring high-dimensional clustering methods to cluster skin appearance descriptors. This research is funded by industry. The initial results have been promising and a manuscript is being prepared. 
-More about it soon!&lt;/p&gt;
+    &lt;img src=&quot;http://parneetk.github.io/images/microbiome_3.png&quot; alt=&quot;Skin Appearance and Skin Microbiome feature&quot;&gt;&lt;br/&gt;
+    &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/research/quantifying-skin-appearance/&quot; rel=&quot;nofollow&quot;&gt;Quantifying skin appearance&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
+&lt;p&gt;{ % comment %}
+Skin Microbiome…&lt;/p&gt;
+
+&lt;p&gt;Skin Appearance…&lt;/p&gt;
+
+&lt;p&gt;Skin appearance modeling using high resolution photography has led to advances in recognition, rendering and analysis. Computational appearance provides an exciting new opportunity for integrating macroscopic imaging and microscopic biology. Recent studies indicate that skin appearance is dependent on the unseen distribution of microbes on the skin surface, i.e.\ the skin microbiome. While modern sequencing methods can be used to identify microbes, these methods are costly and time-consuming. We develop a computational skin texture model to characterize image-based patterns and link them to underlying microbiome clusters. The pattern analysis uses ultraviolet and blue fluorescence multimodal skin photography. The intersection of appearance and microbiome clusters reveals a pattern of microbiome that is predictable with high accuracy based on skin appearance. Furthermore, the use of non-negative matrix factorization allows a representation of the microbiome eigenvector as a physically plausible positive distribution of bacterial components. In this paper, we present the first results in this area of predicting microbiome clusters based on computational skin texture.
+\end{abstract}&lt;/p&gt;
+
+&lt;p&gt;\section{Introduction}
+\begin{figure}[t]
+ 	\centering
+	\includegraphics{figures/intro_goal}
+	\caption{The computational skin appearance model characterizes multimodal images based on their attributes using a texton-based approach. The eigenbiome model projects the skin microbiome to a lower dimensional subspace. By identifying overlapping groups in appearance and microbiome clusters, we show that our skin appearance model is predictive of the underlying microbiome clusters.}
+	\label{fig:goal}
+\end{figure} 
+Recent advances in measuring and analyzing the skin microbiome through gene sequencing is revolutionizing our understanding of skin appearance. With skin microbiome measurements, causative relationships between microbes and macro-appearance can be explored. However, gene sequencing is very cost-prohibitive and time-consuming. An exciting opportunity exists to use {\it photographic imaging and appearance modeling to infer the skin microbiome}, i.e. to effectively ``see’’ the microbiome of a human subject by analyzing skin surface patterns. &lt;/p&gt;
+
+&lt;p&gt;{ % endcomment %}&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/research/microbiome-skin-appearance/&quot; rel=&quot;nofollow&quot;&gt;Skin Appearance and Skin Microbiome&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
   </content>
 </entry>
 
@@ -101,16 +119,6 @@ Smith in his paper titled ‘A Study of Branch Prediction Strategies’ (Smith-s
 
 &lt;p&gt;More Information:
 &lt;a href=&quot;http://cait.rutgers.edu/rabit-asce-award&quot;&gt;RABIT™ Bridge Deck Assessment Tool&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;publications&quot;&gt;Publications&lt;/h2&gt;
-&lt;p&gt;Parneet Kaur, Kristin J. Dana, Francisco A. Romero, Nenad Gucunski. Automated bridge deck evaluation from GPR scans. In review, submitted to IEEE Transactions on Cybernetics on March 25, 2014. [PDF] [BIBTEX]&lt;/p&gt;
-
-&lt;h2 id=&quot;poster&quot;&gt;Poster&lt;/h2&gt;
-&lt;p&gt;[&lt;a href=&quot;http://parneetk.github.io/docs/2013-poster-GMV.pdf&quot; download=&quot;&quot;&gt;Download&lt;/a&gt;]&lt;/p&gt;
-&lt;figure&gt;
-	&lt;img src=&quot;http://parneetk.github.io/images/rabit-poster-GMV.png&quot; alt=&quot;screenshot of GMV poster&quot; /&gt;
-	&lt;figcaption&gt;Presented on June 14th at the 3rd GNY Area Multimedia and Vision Meeting.&lt;/figcaption&gt;
-&lt;/figure&gt;
 
 
     &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/research/automated-bridge-deck-evaluation/&quot; rel=&quot;nofollow&quot;&gt;Automated Bridge Deck Evaluation&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
