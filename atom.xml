@@ -11,7 +11,7 @@
 <subtitle>Personal website of Parneet Kaur.</subtitle>
 <link href="http://parneetk.github.io/atom.xml" rel="self"/>
 <link href="http://parneetk.github.io/" rel="alternate" type="text/html"/>
-<updated>2015-06-17T11:35:31-04:00</updated>
+<updated>2015-06-18T10:24:18-04:00</updated>
 <id>http://parneetk.github.io/</id>
 <author>
   <name>Parneet Kaur</name>
@@ -19,6 +19,36 @@
   
 </author>
 
+
+<entry>
+  <title>My experience as a projectCSGirls mentor</title>
+  <link href="http://parneetk.github.io/blog/projectcsgirls-mentor/"/>
+  <updated>2015-06-17T18:01:33-04:00</updated>
+  <id>http://parneetk.github.io/blog/projectcsgirls-mentor</id>
+  <author>
+    <name>Parneet Kaur</name>
+    <uri>http://parneetk.github.io/</uri>
+    
+  </author>
+  <content type="html">
+    
+    &lt;p&gt;It is evident that there are few women pursuing studies in STEM fields, but it struck me the most when I joined the PhD program in Fall 2014 but could not find many female peers in the department. I can’t change this situation for my generation but I wanted to spread awareness about the widespread gender disparity in STEM fields. Earlier this year I heard about HackHers hackathon organized in Rutgers for female students. I wanted to attend it with my friend Anvita, but the spots were filled by the time we decided to attend it. I was disappointed that I could not attend this event. &lt;/p&gt;
+
+&lt;p&gt;I believe that there are fewer women in technology because many girls choose not to pursue a technical career after high school. It is very important to increase awareness among young girls about the career opportunities in STEM fields. Involving them in projects at a young age is one way of motivating them. It demonstrates to them the significance and existence of technology all around us. That weekend when I could not attend the hackathon, I searched for opportunities or events that promote women in engineering and science. I came across &lt;a href=&quot;https://www.projectcsgirls.com&quot; target=&quot;_blank&quot;&gt; ProjectCSGIRLS &lt;/a&gt;, a non-profit organization that promotes computer science for middle-school girls. They organized a national level competition for middle school girls (6th to 8th grade) and were looking for mentors. I immediately signed up for mentoring a student. After some days I was paired with my mentee, Huzan Baheen. &lt;/p&gt;
+
+&lt;p&gt;Huzan is a 7th grade student. She wanted to do a project in intelligent technology aimed at helping blind or deaf people. We brainstormed and decided to develop a program to convert algebraic equations to Braille for helping blind students. Huzan had a lot to learn in a very short period of time. Since we don’t stay close by, all our interactions were via phone, email and Google Hangout. We started with some basic programming concepts; she would follow some sample programming scripts and then modify them for her task. I think one thing both of us will always remember is how much she struggled with a buggy Octave user interface which would force quit every time she would run a script with a syntax error. She had patience of a saint to work with it! Her dedication and enthusiasm impressed me the most. She would work in the evenings after finishing her homework, on weekends and even spent her entire spring break to finalize the project. Finally she developed a prototype that would allow anyone to take a screenshot of an algebraic equation and use her program to automatically convert it to Braille symbols for a blind student. She submitted a technical report, along with an essay on women in tech and a video presentation. Busy with my own research, coursework and personal commitments, I almost gave up mid-way because it was getting tough to manage with my other commitments but Huzan’s mother, Abhar, kept us motivated. I am thankful to her for encouraging me and not letting me quit. &lt;/p&gt;
+
+&lt;p&gt;I have truly enjoyed my mentoring experience. Her questions helped me refresh some basics and I learnt how to communicate about technical topics with younger students. As a graduate student it was challenging to find time for an additional activity but within a few weeks I realized that having more responsibilities made me more efficient. Watching her progress from week to week, and seeing her enthusiasm to learn new concepts was most rewarding. Most importantly, it encouraged me to continue working towards the goal of promoting women in engineering.&lt;/p&gt;
+
+&lt;p&gt;Here’s the best part. Huzan was selected as a regional winner. She presented her project at the ProjectCSGirls national gala and received an honorable mention for her work &lt;a href=&quot;https://www.projectcsgirls.com/winners.html&quot; target=&quot;_blank&quot;&gt; [link] &lt;/a&gt;. She was so happy; it was such a satisfying moment for me. Congratulations to Huzan, other students who participated in this event and their parents. Thanks to everyone at ProjectCSGirls, who are encouraging young girls to pursue a career in technology and computer science. &lt;/p&gt;
+
+&lt;p&gt;Here’s Huzan talking about her project &lt;a href=&quot;https://www.youtube.com/watch?v=WCkdkpTaDdY&quot; target=&quot;_blank&quot;&gt; [link] &lt;/a&gt; .&lt;/p&gt;
+
+&lt;p&gt;You can read about all the awesome projects by the regional winners &lt;a href=&quot;http://www.projectcsgirls.com/2015-winning-projects.html&quot; target=&quot;_blank&quot;&gt; [here] &lt;/a&gt;.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/blog/projectcsgirls-mentor/&quot; rel=&quot;nofollow&quot;&gt;My experience as a projectCSGirls mentor&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
+  </content>
+</entry>
 
 <entry>
   <title>Skin Appearance and Skin Microbiome</title>
@@ -34,6 +64,7 @@
     &lt;img src=&quot;http://parneetk.github.io/images/microbiome_3.png&quot; alt=&quot;Skin Appearance and Skin Microbiome feature&quot;&gt;&lt;br/&gt;
     &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
 
+&lt;p&gt;To be updated..&lt;/p&gt;
 
     &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/research/microbiome-skin-appearance/&quot; rel=&quot;nofollow&quot;&gt;Skin Appearance and Skin Microbiome&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
   </content>
