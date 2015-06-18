@@ -47,43 +47,61 @@
   </url>
   <url>
     <loc>http://parneetk.github.io/blog/</loc>
-    <lastmod>2015-06-18T10:24:18-04:00</lastmod>
+    <lastmod>2015-06-18T11:07:40-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/cv/</loc>
-    <lastmod>2015-06-18T10:24:18-04:00</lastmod>
+    <lastmod>2015-06-18T11:07:40-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/about/</loc>
-    <lastmod>2015-06-18T10:24:18-04:00</lastmod>
+    <lastmod>2015-06-18T11:07:40-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/</loc>
-    <lastmod>2015-06-18T10:24:18-04:00</lastmod>
+    <lastmod>2015-06-18T11:07:40-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/projects/</loc>
-    <lastmod>2015-06-18T10:24:18-04:00</lastmod>
+    <lastmod>2015-06-18T11:07:40-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/research/</loc>
-    <lastmod>2015-06-18T10:24:18-04:00</lastmod>
+    <lastmod>2015-06-18T11:07:40-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/tag/</loc>
-    <lastmod>2015-06-18T10:24:18-04:00</lastmod>
+    <lastmod>2015-06-18T11:07:40-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>http://parneetk.github.io/tag/projects/</loc>
+    <lastmod>2015-06-18T11:07:40-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>http://parneetk.github.io/tag/research/</loc>
+    <lastmod>2015-06-18T11:07:40-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>http://parneetk.github.io/tag/women-in-tech/</loc>
+    <lastmod>2015-06-18T11:07:40-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
