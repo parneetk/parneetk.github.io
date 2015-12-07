@@ -7,27 +7,27 @@
 
 <title>Parneet Kaur</title>
 <generator uri="https://github.com/jekyll/jekyll">Jekyll v2.5.1</generator>
-<icon>http://parneetk.github.io/apple-touch-icon-precomposed.png</icon>
+<icon>http://127.0.0.1:4000/apple-touch-icon-precomposed.png</icon>
 <subtitle>Personal website of Parneet Kaur.</subtitle>
-<link href="http://parneetk.github.io/atom.xml" rel="self"/>
-<link href="http://parneetk.github.io/" rel="alternate" type="text/html"/>
-<updated>2015-06-18T11:07:40-04:00</updated>
-<id>http://parneetk.github.io/</id>
+<link href="http://127.0.0.1:4000/atom.xml" rel="self"/>
+<link href="http://127.0.0.1:4000/" rel="alternate" type="text/html"/>
+<updated>2015-12-07T09:52:39-05:00</updated>
+<id>http://127.0.0.1:4000/</id>
 <author>
   <name>Parneet Kaur</name>
-  <uri>http://parneetk.github.io/</uri>
+  <uri>http://127.0.0.1:4000/</uri>
   
 </author>
 
 
 <entry>
   <title>My experience as a projectCSGirls mentor</title>
-  <link href="http://parneetk.github.io/blog/projectcsgirls-mentor/"/>
+  <link href="http://127.0.0.1:4000/blog/projectcsgirls-mentor/"/>
   <updated>2015-06-17T18:01:33-04:00</updated>
-  <id>http://parneetk.github.io/blog/projectcsgirls-mentor</id>
+  <id>http://127.0.0.1:4000/blog/projectcsgirls-mentor</id>
   <author>
     <name>Parneet Kaur</name>
-    <uri>http://parneetk.github.io/</uri>
+    <uri>http://127.0.0.1:4000/</uri>
     
   </author>
   <content type="html">
@@ -46,42 +46,48 @@
 
 &lt;p&gt;You can read about all the awesome projects by the regional winners &lt;a href=&quot;http://www.projectcsgirls.com/2015-winning-projects.html&quot; target=&quot;_blank&quot;&gt; [here] &lt;/a&gt;.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/blog/projectcsgirls-mentor/&quot; rel=&quot;nofollow&quot;&gt;My experience as a projectCSGirls mentor&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
+    &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/blog/projectcsgirls-mentor/&quot; rel=&quot;nofollow&quot;&gt;My experience as a projectCSGirls mentor&lt;/a&gt; was originally published by &lt;a href=&quot;http://127.0.0.1:4000/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://127.0.0.1:4000&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
   </content>
 </entry>
 
 <entry>
   <title>Skin Appearance and Skin Microbiome</title>
-  <link href="http://parneetk.github.io/research/microbiome-skin-appearance/"/>
+  <link href="http://127.0.0.1:4000/research/microbiome-skin-appearance/"/>
   <updated>2014-12-16T00:00:00-05:00</updated>
-  <id>http://parneetk.github.io/research/microbiome-skin-appearance</id>
+  <id>http://127.0.0.1:4000/research/microbiome-skin-appearance</id>
   <author>
     <name>Parneet Kaur</name>
-    <uri>http://parneetk.github.io/</uri>
+    <uri>http://127.0.0.1:4000/</uri>
     
   </author>
   <content type="html">
-    &lt;img src=&quot;http://parneetk.github.io/images/microbiome_3.png&quot; alt=&quot;Skin Appearance and Skin Microbiome feature&quot;&gt;&lt;br/&gt;
+    &lt;img src=&quot;http://127.0.0.1:4000/images/microbiome-feature.png&quot; alt=&quot;Skin Appearance and Skin Microbiome feature&quot;&gt;&lt;br/&gt;
     &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Skin appearance modeling using high resolution photography has led to advances in recognition, rendering and analysis. Computational appearance provides an exciting
+new opportunity for integrating macroscopic imaging and microscopic biology. Recent studies indicate that skin appearance is dependent on the unseen distribution of microbes
+on the skin surface, i.e. the skin microbiome. While modern sequencing methods can be used to identify microbes, these methods are costly and time-consuming. We develop a computational skin texture model to characterize image-based patterns and link them to underlying microbiome clusters. The pattern analysis uses ultraviolet and blue fluorescence multimodal skin photography. The intersection of appearance and microbiome clusters reveals a pattern of microbiome that is predictable with high accuracy
+based on skin appearance. Furthermore, the use of non-negative matrix factorization allows a representation of the microbiome eigenvector as a physically plausible positive
+distribution of bacterial components. &lt;/p&gt;
 
-&lt;p&gt;To be updated..&lt;/p&gt;
+&lt;p&gt;Currently, we are developing high dimensional clustering algorithms for appearance-microbiome as well as traditional computer vision datasets. This project is funded by Johnson &amp;amp; Johnson.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/research/microbiome-skin-appearance/&quot; rel=&quot;nofollow&quot;&gt;Skin Appearance and Skin Microbiome&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
+
+    &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/research/microbiome-skin-appearance/&quot; rel=&quot;nofollow&quot;&gt;Skin Appearance and Skin Microbiome&lt;/a&gt; was originally published by &lt;a href=&quot;http://127.0.0.1:4000/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://127.0.0.1:4000&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
   </content>
 </entry>
 
 <entry>
   <title>Evaluation of Branch Prediction Strategies</title>
-  <link href="http://parneetk.github.io/projects/branch-prediction/"/>
+  <link href="http://127.0.0.1:4000/projects/branch-prediction/"/>
   <updated>2014-12-14T00:00:00-05:00</updated>
-  <id>http://parneetk.github.io/projects/branch-prediction</id>
+  <id>http://127.0.0.1:4000/projects/branch-prediction</id>
   <author>
     <name>Parneet Kaur</name>
-    <uri>http://parneetk.github.io/</uri>
+    <uri>http://127.0.0.1:4000/</uri>
     
   </author>
   <content type="html">
-    &lt;img src=&quot;http://parneetk.github.io/images/branch-prediction-feature.png&quot; alt=&quot;Evaluation of Branch Prediction Strategies feature&quot;&gt;&lt;br/&gt;
+    &lt;img src=&quot;http://127.0.0.1:4000/images/branch-prediction-feature.png&quot; alt=&quot;Evaluation of Branch Prediction Strategies feature&quot;&gt;&lt;br/&gt;
     &lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
 
 &lt;p&gt;Modern computer architectures implement instruction-level, data-level and thread
@@ -105,27 +111,27 @@ Smith in his paper titled ‘A Study of Branch Prediction Strategies’ (Smith-s
 
 &lt;p&gt;All the strategies are compared to the default Bimodal strategy in Simplescalar. While Smith-strategy6 is a poor predictor, Smith-strategy7 with 3-bit counter (or more) performs better by decreasing the misprediction rate for given benchmarks. Both the proposed predictors are marginally better for three out of five given benchmarks as they decrease the misprediction rate and increase the IPC.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/projects/branch-prediction/&quot; rel=&quot;nofollow&quot;&gt;Evaluation of Branch Prediction Strategies&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
+    &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/projects/branch-prediction/&quot; rel=&quot;nofollow&quot;&gt;Evaluation of Branch Prediction Strategies&lt;/a&gt; was originally published by &lt;a href=&quot;http://127.0.0.1:4000/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://127.0.0.1:4000&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
   </content>
 </entry>
 
 <entry>
   <title>Automated Bridge Deck Evaluation</title>
-  <link href="http://parneetk.github.io/research/automated-bridge-deck-evaluation/"/>
+  <link href="http://127.0.0.1:4000/research/automated-bridge-deck-evaluation/"/>
   <updated>2013-06-30T00:00:00-04:00</updated>
-  <id>http://parneetk.github.io/research/automated-bridge-deck-evaluation</id>
+  <id>http://127.0.0.1:4000/research/automated-bridge-deck-evaluation</id>
   <author>
     <name>Parneet Kaur</name>
-    <uri>http://parneetk.github.io/</uri>
+    <uri>http://127.0.0.1:4000/</uri>
     
   </author>
   <content type="html">
-    &lt;img src=&quot;http://parneetk.github.io/images/rabit-feature.png&quot; alt=&quot;Automated Bridge Deck Evaluation feature&quot;&gt;&lt;br/&gt;
+    &lt;img src=&quot;http://127.0.0.1:4000/images/rabit-feature.png&quot; alt=&quot;Automated Bridge Deck Evaluation feature&quot;&gt;&lt;br/&gt;
     &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
 &lt;p&gt;RABIT™ (Robotics-Assisted Bridge Inspection Tool) is an autonomous bridge assessment tool designed and developed as part of the Long-Term Bridge Performance (&lt;a href=&quot;http://cait.rutgers.edu/ltbp&quot;&gt;LTBP&lt;/a&gt;) Program by &lt;a href=&quot;http://www.fhwa.dot.gov/&quot;&gt;Federal Highway Administration&lt;/a&gt;, &lt;a href=&quot;http://cait.rutgers.edu&quot;&gt;Center for Advanced Infrastructure and Transportation&lt;/a&gt; and &lt;a href=&quot;http://soe.rutgers.edu/&quot;&gt;Rutgers School of Engineering&lt;/a&gt;. RABIT collects data using several cutting-edge nondestructive evaluation (NDE) technologies and provides comprehensive condition assessment of concrete bridge decks. The NDE sensors like ground-penetrating radar, ultrasonic surface waves and high resolution cameras detect defects like corrosion, delamination and cracks in concrete, without harming the bridge structure. In addition, a panoramic camera images the surroundings. Manually collecting all the data is time-consuming, labor intensive, limits the amount of data that can be collected and causes traffic disruptions. RABIT eases the process of data collection and analysis, making it quick and precise and provides an overall assessment of the bridge decks using multiple sensors. This project was awarded the 2014 &lt;a href=&quot;http://content.asce.org/handa/PankowAward.html&quot;&gt;Charles Pankow Award for Innovation&lt;/a&gt; by the American Society of Civil Engineers (ASCE).&lt;/p&gt;
 
 &lt;p&gt;
-&lt;img src=&quot;http://parneetk.github.io/images/rabit-1.jpg&quot; alt=&quot;RABIT™ Bridge Deck Assessment Tool&quot; align=&quot;right&quot; hspace=&quot;20&quot; /&gt; 
+&lt;img src=&quot;http://127.0.0.1:4000/images/rabit-1.jpg&quot; alt=&quot;RABIT™ Bridge Deck Assessment Tool&quot; align=&quot;right&quot; hspace=&quot;20&quot; /&gt; 
 &lt;/p&gt;
 
 &lt;p&gt;I was part of the computer vision team supervised by Dr. Kristin J. Dana. I worked on the Ground Penetrating Radar (GPR) sensor, which captures information from the subsurface of concrete bridges and represent it as high quality images. Reinforced concrete (RC) bridges have steel reinforcement bars (rebars) embedded within the decks for structural strength and they form a distinct hyperbolic signature in the images. Rebars deteriorate over time and their signature in images varies due to decreased signal strength. We developed methods to interpret the GPR images with pattern recognition and machine learning to find the rebar hyperbolic signature. Our approach used image-based gradient features and robust curve fitting. The detected hyperbolic signatures of rebars within the bridge deck are used to generate deterioration maps of the bridge deck. We compared the results of the rebar region detector quantitatively with several methods of image-based classification and demonstrated a significant performance advantage of using the new method. The traditional methods for obtaining deterioration maps from GPR data often require manual interaction and offsite processing. Application of this new algorithm along with robot integration, automates the process of bridge deck assessment.&lt;/p&gt;
@@ -134,50 +140,50 @@ Smith in his paper titled ‘A Study of Branch Prediction Strategies’ (Smith-s
 &lt;a href=&quot;http://cait.rutgers.edu/rabit-asce-award&quot;&gt;RABIT™ Bridge Deck Assessment Tool&lt;/a&gt;&lt;/p&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/research/automated-bridge-deck-evaluation/&quot; rel=&quot;nofollow&quot;&gt;Automated Bridge Deck Evaluation&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
+    &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/research/automated-bridge-deck-evaluation/&quot; rel=&quot;nofollow&quot;&gt;Automated Bridge Deck Evaluation&lt;/a&gt; was originally published by &lt;a href=&quot;http://127.0.0.1:4000/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://127.0.0.1:4000&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
   </content>
 </entry>
 
 <entry>
   <title>Study of pattern recognition techniques in classifying gene expression profiles</title>
-  <link href="http://parneetk.github.io/projects/pattern-recognition-gene-expression/"/>
+  <link href="http://127.0.0.1:4000/projects/pattern-recognition-gene-expression/"/>
   <updated>2012-05-14T00:00:00-04:00</updated>
-  <id>http://parneetk.github.io/projects/pattern-recognition-gene-expression</id>
+  <id>http://127.0.0.1:4000/projects/pattern-recognition-gene-expression</id>
   <author>
     <name>Parneet Kaur</name>
-    <uri>http://parneetk.github.io/</uri>
+    <uri>http://127.0.0.1:4000/</uri>
     
   </author>
   <content type="html">
-    &lt;img src=&quot;http://parneetk.github.io/images/image-not-available-400x100.png&quot; alt=&quot;Study of pattern recognition techniques in classifying gene expression profiles feature&quot;&gt;&lt;br/&gt;
+    &lt;img src=&quot;http://127.0.0.1:4000/images/image-not-available-400x100.png&quot; alt=&quot;Study of pattern recognition techniques in classifying gene expression profiles feature&quot;&gt;&lt;br/&gt;
     &lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
 &lt;p&gt;In his project I explored various pattern recognition techniques in a biomedical problem. Gene expression profiles are widely studied to classify patients into tumor/non-tumor and/or to the correct tumor category. Since the number of tissue samples examined is usually much smaller than the number of genes examined, efficient data reduction techniques are important. Another interesting problem is to find the most relevant/informative genes in the genome, which can help in successful classification. The aim of this project was to study the effectiveness of linear and non-linear dimensionality reduction methods on performance of classification algorithms by measuring their success rate. In addition, most relevant/discriminative features were found and their success in classification techniques was studied. &lt;/p&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/projects/pattern-recognition-gene-expression/&quot; rel=&quot;nofollow&quot;&gt;Study of pattern recognition techniques in classifying gene expression profiles&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
+    &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/projects/pattern-recognition-gene-expression/&quot; rel=&quot;nofollow&quot;&gt;Study of pattern recognition techniques in classifying gene expression profiles&lt;/a&gt; was originally published by &lt;a href=&quot;http://127.0.0.1:4000/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://127.0.0.1:4000&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
   </content>
 </entry>
 
 <entry>
   <title>Concrete texture analysis for micro-crack detection</title>
-  <link href="http://parneetk.github.io/projects/concrete-texture/"/>
+  <link href="http://127.0.0.1:4000/projects/concrete-texture/"/>
   <updated>2011-12-14T00:00:00-05:00</updated>
-  <id>http://parneetk.github.io/projects/concrete-texture</id>
+  <id>http://127.0.0.1:4000/projects/concrete-texture</id>
   <author>
     <name>Parneet Kaur</name>
-    <uri>http://parneetk.github.io/</uri>
+    <uri>http://127.0.0.1:4000/</uri>
     
   </author>
   <content type="html">
-    &lt;img src=&quot;http://parneetk.github.io/images/texture-camera-feature.png&quot; alt=&quot;Concrete texture analysis for micro-crack detection feature&quot;&gt;&lt;br/&gt;
+    &lt;img src=&quot;http://127.0.0.1:4000/images/texture-camera-feature.png&quot; alt=&quot;Concrete texture analysis for micro-crack detection feature&quot;&gt;&lt;br/&gt;
     &lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
 &lt;p&gt;This project involved setting and aligning texture camera for concrete sample analysis. Micro-cracks in concrete samples are not visible by human eyes. One possible way of detecting such cracks is by measuring the reflectance using texture camera. Texture camera was invented by my advisor &lt;a href=&quot;http://www.ece.rutgers.edu/~kdana&quot;&gt;Dr. Kristin J. Dana&lt;/a&gt;for measurement of reflectance and texture.&lt;/p&gt;
 
 &lt;p&gt;Each image captured using texture camera is a measure of bidirectional reflectance distribution function (BRDF). For a fixed illumination direction, each pixel of this image represents reflectance measure for a different viewing angle. For a desired viewing angle, corresponding pixels are identified in all BRDF images and put together to obtain a textured image. Based on the measurements in BRDF images and analysis of BRDF of crack and non-crack regions, an intensity histogram based approach was proposed to classify the texture surface into crack and non-crack regions. &lt;/p&gt;
 
 &lt;figure class=&quot;second&quot;&gt;
-	&lt;a href=&quot;http://parneetk.github.io/images/texture-camera-1.png&quot;&gt;&lt;img src=&quot;http://parneetk.github.io/images/texture-camera-1.png&quot; alt=&quot;Texture Camera&quot; /&gt;&lt;/a&gt;
-	&lt;a href=&quot;http://parneetk.github.io/images/texture-camera-2.png&quot;&gt;&lt;img src=&quot;http://parneetk.github.io/images/texture-camera-2.png&quot; alt=&quot;BRDF&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;http://127.0.0.1:4000/images/texture-camera-1.png&quot;&gt;&lt;img src=&quot;http://127.0.0.1:4000/images/texture-camera-1.png&quot; alt=&quot;Texture Camera&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;http://127.0.0.1:4000/images/texture-camera-2.png&quot;&gt;&lt;img src=&quot;http://127.0.0.1:4000/images/texture-camera-2.png&quot; alt=&quot;BRDF&quot; /&gt;&lt;/a&gt;
 	&lt;figcaption&gt;Texture Camera and BRDF of concrete sample.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -185,68 +191,68 @@ Smith in his paper titled ‘A Study of Branch Prediction Strategies’ (Smith-s
 &lt;p&gt;Kristin J. Dana, “BRDF/BTF measurement Device”, ICCV Proceedings of Eighth IEEE International Conference on Computer Vision, vol. 2, pp 460-6, July 2001.&lt;/p&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/projects/concrete-texture/&quot; rel=&quot;nofollow&quot;&gt;Concrete texture analysis for micro-crack detection&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
+    &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/projects/concrete-texture/&quot; rel=&quot;nofollow&quot;&gt;Concrete texture analysis for micro-crack detection&lt;/a&gt; was originally published by &lt;a href=&quot;http://127.0.0.1:4000/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://127.0.0.1:4000&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
   </content>
 </entry>
 
 <entry>
   <title>Real Time Hand Gesture Recognition and Blink Detection</title>
-  <link href="http://parneetk.github.io/projects/realtime-hand-gesture/"/>
+  <link href="http://127.0.0.1:4000/projects/realtime-hand-gesture/"/>
   <updated>2011-05-16T00:00:00-04:00</updated>
-  <id>http://parneetk.github.io/projects/realtime-hand-gesture</id>
+  <id>http://127.0.0.1:4000/projects/realtime-hand-gesture</id>
   <author>
     <name>Parneet Kaur</name>
-    <uri>http://parneetk.github.io/</uri>
+    <uri>http://127.0.0.1:4000/</uri>
     
   </author>
   <content type="html">
-    &lt;img src=&quot;http://parneetk.github.io/images/hand-gesture-feature.png&quot; alt=&quot;Real Time Hand Gesture Recognition and Blink Detection feature&quot;&gt;&lt;br/&gt;
+    &lt;img src=&quot;http://127.0.0.1:4000/images/hand-gesture-feature.png&quot; alt=&quot;Real Time Hand Gesture Recognition and Blink Detection feature&quot;&gt;&lt;br/&gt;
     &lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
 &lt;p&gt;This was one of the first projects I implemented in computer vision, without much knowledge of machine learning or advanced computer vision techniques. The objective of this project was to implement the mouse tasks of cursor movement, left click and right click in a Windows OS using hand gestures. A simple webcam was used for capturing frames continuously. Hand region was found in real time by background subtraction and color segmentation in HSV color space. Hand features, which include fingertips and thumb were detected using contours. Fingertip count, position and thumb detection were used to form three distinct hand gestures. &lt;/p&gt;
 
 &lt;p&gt;As an extension, with intention to control cursor using eyes, intentional blink detection was implemented using eye region extraction, histogram equalization and blob detection. Natural blinks were ignored. This feature was not used for implementing mouse tasks.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/projects/realtime-hand-gesture/&quot; rel=&quot;nofollow&quot;&gt;Real Time Hand Gesture Recognition and Blink Detection&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
+    &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/projects/realtime-hand-gesture/&quot; rel=&quot;nofollow&quot;&gt;Real Time Hand Gesture Recognition and Blink Detection&lt;/a&gt; was originally published by &lt;a href=&quot;http://127.0.0.1:4000/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://127.0.0.1:4000&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
   </content>
 </entry>
 
 <entry>
   <title>Unravel Before You Travel-A Decision System for Air-ticket Purchase</title>
-  <link href="http://parneetk.github.io/projects/unravel-before-you-travel/"/>
+  <link href="http://127.0.0.1:4000/projects/unravel-before-you-travel/"/>
   <updated>2011-05-15T00:00:00-04:00</updated>
-  <id>http://parneetk.github.io/projects/unravel-before-you-travel</id>
+  <id>http://127.0.0.1:4000/projects/unravel-before-you-travel</id>
   <author>
     <name>Parneet Kaur</name>
-    <uri>http://parneetk.github.io/</uri>
+    <uri>http://127.0.0.1:4000/</uri>
     
   </author>
   <content type="html">
-    &lt;img src=&quot;http://parneetk.github.io/images/unravel-travel-feature.png&quot; alt=&quot;Unravel Before You Travel-A Decision System for Air-ticket Purchase feature&quot;&gt;&lt;br/&gt;
+    &lt;img src=&quot;http://127.0.0.1:4000/images/unravel-travel-feature.png&quot; alt=&quot;Unravel Before You Travel-A Decision System for Air-ticket Purchase feature&quot;&gt;&lt;br/&gt;
     &lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
 &lt;p&gt;Given past two years of airline ticket price data between two cities, we had to decide whether to recommend a customer to ‘Buy’ or ‘Not to Buy’ an airline ticket on date X (say, today) if he wanted to travel on date Y in future (say, 5 days from today) such that the purchase is profitable. If the air ticket prices for the next 5 days are known, we can decide if it will be profitable to buy the tickets today (if ticket price increases in future) or is it profitable to buy the tickets within the next 5 days (if ticket price drops in future). &lt;/p&gt;
 
 &lt;p&gt;Autoregressive integrated moving average (ARIMA), dynamic linear modeling (DLM) and double exponential moving average (DEMA) were used to predict the prices or trend in future for making decisions. Performance of the models is evaluated and compared based on the number of correct decisions made (we had the ground truth).Using ARIMA and DLM, future prices are predicted and the decision making is based on whether the predicted prices are higher or lower than today and it is also predicted that on which day will it be most profitable. Using DEMA, the trend is analyzed to make the decision only for the present day and no prediction is made about the future. &lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/projects/unravel-before-you-travel/&quot; rel=&quot;nofollow&quot;&gt;Unravel Before You Travel-A Decision System for Air-ticket Purchase&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
+    &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/projects/unravel-before-you-travel/&quot; rel=&quot;nofollow&quot;&gt;Unravel Before You Travel-A Decision System for Air-ticket Purchase&lt;/a&gt; was originally published by &lt;a href=&quot;http://127.0.0.1:4000/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://127.0.0.1:4000&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
   </content>
 </entry>
 
 <entry>
   <title>Face Recognition using Eigenfaces</title>
-  <link href="http://parneetk.github.io/projects/face-recognition-pca/"/>
+  <link href="http://127.0.0.1:4000/projects/face-recognition-pca/"/>
   <updated>2011-05-14T00:00:00-04:00</updated>
-  <id>http://parneetk.github.io/projects/face-recognition-pca</id>
+  <id>http://127.0.0.1:4000/projects/face-recognition-pca</id>
   <author>
     <name>Parneet Kaur</name>
-    <uri>http://parneetk.github.io/</uri>
+    <uri>http://127.0.0.1:4000/</uri>
     
   </author>
   <content type="html">
-    &lt;img src=&quot;http://parneetk.github.io/images/image-not-available-1200x400.png&quot; alt=&quot;Face Recognition using Eigenfaces feature&quot;&gt;&lt;br/&gt;
+    &lt;img src=&quot;http://127.0.0.1:4000/images/image-not-available-1200x400.png&quot; alt=&quot;Face Recognition using Eigenfaces feature&quot;&gt;&lt;br/&gt;
     &lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
 &lt;p&gt;Face recognition is used to identify a person in a given image using existing images in the database. Principal component analysis reduces the high dimensional data (2-D image represented as 1-D vector) to a low dimensional feature space by using the eigen value decomposition of covariance matrix of the training data. In this project, Yale Face Database was used for the experiments. Using eigenvectors corresponding to k highest eigenvalues (k«dimensionality of 1D image vector), each image was projected to k-dimensional space (eigenface). The test image was also projected to the k-dimensional space using eigenvectors obtained from training set and was classified as belonging to the training sample which is closest to it based on Euclidean distance. Test data comprised of images not in the training set including images of person in the training set, person not in the training set and some non-face image. In addition, image compression using Singular Value Decomposition was studied and the performance was analyzed in terms of compression factor, mean square error and peak signal to noise ratio.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/projects/face-recognition-pca/&quot; rel=&quot;nofollow&quot;&gt;Face Recognition using Eigenfaces&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
+    &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/projects/face-recognition-pca/&quot; rel=&quot;nofollow&quot;&gt;Face Recognition using Eigenfaces&lt;/a&gt; was originally published by &lt;a href=&quot;http://127.0.0.1:4000/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://127.0.0.1:4000&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
   </content>
 </entry>
 
