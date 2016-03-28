@@ -11,7 +11,7 @@
 <subtitle>Personal website of Parneet Kaur.</subtitle>
 <link href="http://parneetk.github.io/atom.xml" rel="self"/>
 <link href="http://parneetk.github.io/" rel="alternate" type="text/html"/>
-<updated>2016-03-22T00:24:47-04:00</updated>
+<updated>2016-03-28T11:44:41-04:00</updated>
 <id>http://parneetk.github.io/</id>
 <author>
   <name>Parneet Kaur</name>
@@ -19,6 +19,25 @@
   
 </author>
 
+
+<entry>
+  <title>Confocal Microscopy for Classification of Skin Layers</title>
+  <link href="http://parneetk.github.io/research/confocal-microscopy/"/>
+  <updated>2016-03-27T00:00:00-04:00</updated>
+  <id>http://parneetk.github.io/research/confocal-microscopy</id>
+  <author>
+    <name>Parneet Kaur</name>
+    <uri>http://parneetk.github.io/</uri>
+    
+  </author>
+  <content type="html">
+    &lt;img src=&quot;http://parneetk.github.io/images/image-not-available-400x50.png&quot; alt=&quot;Confocal Microscopy for Classification of Skin Layers feature&quot;&gt;&lt;br/&gt;
+    &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;To be updated soon after a peer-reviewed publication.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/research/confocal-microscopy/&quot; rel=&quot;nofollow&quot;&gt;Confocal Microscopy for Classification of Skin Layers&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
+  </content>
+</entry>
 
 <entry>
   <title>My experience as a projectCSGirls mentor</title>
@@ -40,9 +59,7 @@
 
 &lt;p&gt;I have truly enjoyed my mentoring experience. Her questions helped me refresh some basics and I learnt how to communicate about technical topics with younger students. As a graduate student it was challenging to find time for an additional activity but within a few weeks I realized that having more responsibilities made me more efficient. Watching her progress from week to week, and seeing her enthusiasm to learn new concepts was most rewarding. Most importantly, it encouraged me to continue working towards the goal of promoting women in engineering.&lt;/p&gt;
 
-&lt;p&gt;Here’s the best part. Huzan was selected as a regional winner. She presented her project at the ProjectCSGirls national gala and received an honorable mention for her work &lt;a href=&quot;https://www.projectcsgirls.com/winners.html&quot; target=&quot;_blank&quot;&gt; [link] &lt;/a&gt;. She was so happy; it was such a satisfying moment for me. Congratulations to Huzan, other students who participated in this event and their parents. Thanks to everyone at ProjectCSGirls, who are encouraging young girls to pursue a career in technology and computer science. &lt;/p&gt;
-
-&lt;p&gt;Here’s Huzan talking about her project &lt;a href=&quot;https://www.youtube.com/watch?v=WCkdkpTaDdY&quot; target=&quot;_blank&quot;&gt; [link] &lt;/a&gt; .&lt;/p&gt;
+&lt;p&gt;Here’s the best part. Huzan was selected as a regional winner. She presented her project at the ProjectCSGirls national gala and received an honorable mention for her work &lt;a href=&quot;http://www.projectcsgirls.com/2015.html&quot; target=&quot;_blank&quot;&gt; [link] &lt;/a&gt;. She was so happy; it was such a satisfying moment for me. Congratulations to Huzan, other students who participated in this event and their parents. Thanks to everyone at ProjectCSGirls, who are encouraging young girls to pursue a career in technology and computer science. &lt;/p&gt;
 
 &lt;p&gt;You can read about all the awesome projects by the regional winners &lt;a href=&quot;http://www.projectcsgirls.com/2015-winning-projects.html&quot; target=&quot;_blank&quot;&gt; [here] &lt;/a&gt;.&lt;/p&gt;
 
