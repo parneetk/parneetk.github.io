@@ -11,7 +11,7 @@
 <subtitle>Personal website of Parneet Kaur.</subtitle>
 <link href="http://parneetk.github.io/atom.xml" rel="self"/>
 <link href="http://parneetk.github.io/" rel="alternate" type="text/html"/>
-<updated>2016-03-28T17:28:48-04:00</updated>
+<updated>2016-03-29T21:04:33-04:00</updated>
 <id>http://parneetk.github.io/</id>
 <author>
   <name>Parneet Kaur</name>
@@ -86,7 +86,9 @@ on the skin surface, i.e. the skin microbiome. While modern sequencing methods c
 based on skin appearance. Furthermore, the use of non-negative matrix factorization allows a representation of the microbiome eigenvector as a physically plausible positive
 distribution of bacterial components. &lt;/p&gt;
 
-&lt;p&gt;Currently, we are developing high dimensional clustering algorithms for appearance-microbiome as well as traditional computer vision datasets. This project is funded by Johnson &amp;amp; Johnson.&lt;/p&gt;
+&lt;p&gt;Currently, I am developing advanced method of handling multiview high dimensional data by using computational appearance to supervise clustering of the bacteria genetic signature. This project is funded by Johnson &amp;amp; Johnson.&lt;/p&gt;
+
+&lt;p&gt;More details to be added soon.&lt;/p&gt;
 
 
     &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/research/microbiome-skin-appearance/&quot; rel=&quot;nofollow&quot;&gt;Skin Appearance and Skin Microbiome&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
