@@ -1,118 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://127.0.0.1:4000/research/confocal-microscopy/</loc>
+    <loc>http://parneetk.github.io/research/confocal-microscopy/</loc>
     <lastmod>2016-03-27T00:00:00-04:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/blog/projectcsgirls-mentor/</loc>
+    <loc>http://parneetk.github.io/blog/projectcsgirls-mentor/</loc>
     <lastmod>2015-06-17T18:01:33-04:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/research/microbiome-skin-appearance/</loc>
+    <loc>http://parneetk.github.io/research/microbiome-skin-appearance/</loc>
     <lastmod>2014-12-16T00:00:00-05:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/projects/branch-prediction/</loc>
+    <loc>http://parneetk.github.io/projects/branch-prediction/</loc>
     <lastmod>2014-12-14T00:00:00-05:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/research/automated-bridge-deck-evaluation/</loc>
+    <loc>http://parneetk.github.io/research/automated-bridge-deck-evaluation/</loc>
     <lastmod>2013-06-30T00:00:00-04:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/projects/pattern-recognition-gene-expression/</loc>
+    <loc>http://parneetk.github.io/projects/pattern-recognition-gene-expression/</loc>
     <lastmod>2012-05-14T00:00:00-04:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/projects/concrete-texture/</loc>
+    <loc>http://parneetk.github.io/projects/concrete-texture/</loc>
     <lastmod>2011-12-14T00:00:00-05:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/projects/realtime-hand-gesture/</loc>
+    <loc>http://parneetk.github.io/projects/realtime-hand-gesture/</loc>
     <lastmod>2011-05-16T00:00:00-04:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/projects/unravel-before-you-travel/</loc>
+    <loc>http://parneetk.github.io/projects/unravel-before-you-travel/</loc>
     <lastmod>2011-05-15T00:00:00-04:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/projects/face-recognition-pca/</loc>
+    <loc>http://parneetk.github.io/projects/face-recognition-pca/</loc>
     <lastmod>2011-05-14T00:00:00-04:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/contact-me/</loc>
-    <lastmod>2016-04-25T14:39:15-04:00</lastmod>
+    <loc>http://parneetk.github.io/contact-me/</loc>
+    <lastmod>2016-04-25T14:41:23-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/blog/</loc>
-    <lastmod>2016-04-25T14:39:15-04:00</lastmod>
+    <loc>http://parneetk.github.io/blog/</loc>
+    <lastmod>2016-04-25T14:41:23-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/cv/</loc>
-    <lastmod>2016-04-25T14:39:15-04:00</lastmod>
+    <loc>http://parneetk.github.io/cv/</loc>
+    <lastmod>2016-04-25T14:41:23-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/about/</loc>
-    <lastmod>2016-04-25T14:39:15-04:00</lastmod>
+    <loc>http://parneetk.github.io/about/</loc>
+    <lastmod>2016-04-25T14:41:23-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/</loc>
-    <lastmod>2016-04-25T14:39:15-04:00</lastmod>
+    <loc>http://parneetk.github.io/</loc>
+    <lastmod>2016-04-25T14:41:23-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/projects/</loc>
-    <lastmod>2016-04-25T14:39:15-04:00</lastmod>
+    <loc>http://parneetk.github.io/projects/</loc>
+    <lastmod>2016-04-25T14:41:23-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/research/</loc>
-    <lastmod>2016-04-25T14:39:15-04:00</lastmod>
+    <loc>http://parneetk.github.io/research/</loc>
+    <lastmod>2016-04-25T14:41:23-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/tag/</loc>
-    <lastmod>2016-04-25T14:39:15-04:00</lastmod>
+    <loc>http://parneetk.github.io/tag/</loc>
+    <lastmod>2016-04-25T14:41:23-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/tag/projects/</loc>
-    <lastmod>2016-04-25T14:39:15-04:00</lastmod>
+    <loc>http://parneetk.github.io/tag/projects/</loc>
+    <lastmod>2016-04-25T14:41:23-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/tag/research/</loc>
-    <lastmod>2016-04-25T14:39:15-04:00</lastmod>
+    <loc>http://parneetk.github.io/tag/research/</loc>
+    <lastmod>2016-04-25T14:41:23-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://127.0.0.1:4000/tag/women-in-tech/</loc>
-    <lastmod>2016-04-25T14:39:15-04:00</lastmod>
+    <loc>http://parneetk.github.io/tag/women-in-tech/</loc>
+    <lastmod>2016-04-25T14:41:23-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
