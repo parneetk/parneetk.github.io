@@ -1,9 +1,10 @@
 @INPROCEEDINGS{Kaur15, 
-author={Kaur, P. and Dana, K.J. and Cula, G.O.}, 
-booktitle={Computer Vision and Pattern Recognition Workshops (CVPRW), 2015 IEEE Conference on}, 
+author={P. Kaur and K. J. Dana and G. O. Cula}, 
+booktitle={2015 IEEE Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)}, 
 title={From photography to microbiology: Eigenbiome models for skin appearance}, 
 year={2015}, 
 pages={1-10}, 
 keywords={eigenvalues and eigenfunctions;face recognition;image resolution;image texture;matrix decomposition;microphotography;bacterial components;blue fluorescence multimodal skin photography;computational skin texture model;eigenbiome model;high resolution photography;macroscopic imaging;microbiology;microbiome cluster;microbiome eigenvector;microscopic biology;nonnegative matrix factorization;skin appearance modeling;skin microbiome;ultraviolet multimodal skin photography;Artificial neural networks;Computational modeling;Forehead;Histograms;Imaging;Labeling;Skin}, 
 doi={10.1109/CVPRW.2015.7301310}, 
+ISSN={2160-7508}, 
 month={June},}

@@ -1,0 +1,6 @@
+@INPROCEEDINGS{Kaur16a, 
+author={P. Kaur and K. J. Dana and G. O. Cula and C. Mack}, 
+booktitle={2016 23rd International Conference on Pattern Recognition}, 
+title={Hybrid Deep Learning for Reflectance Confocal Microscopy Skin Images}, 
+year={2016}, 
+month={Dec},}

@@ -11,7 +11,7 @@
 <subtitle>Personal website of Parneet Kaur.</subtitle>
 <link href="http://parneetk.github.io/atom.xml" rel="self"/>
 <link href="http://parneetk.github.io/" rel="alternate" type="text/html"/>
-<updated>2016-09-18T21:43:56-04:00</updated>
+<updated>2017-01-10T12:17:26-05:00</updated>
 <id>http://parneetk.github.io/</id>
 <author>
   <name>Parneet Kaur</name>
@@ -31,9 +31,12 @@
     
   </author>
   <content type="html">
-    &lt;img src=&quot;http://parneetk.github.io/images/image-not-available-400x50.png&quot; alt=&quot;Confocal Microscopy for Classification of Skin Layers feature&quot;&gt;&lt;br/&gt;
+    &lt;img src=&quot;http://parneetk.github.io/images/confocal-feature.png&quot; alt=&quot;Confocal Microscopy for Classification of Skin Layers feature&quot;&gt;&lt;br/&gt;
     &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
-&lt;p&gt;To be updated soon after a peer-reviewed publication. Manuscript submitted.&lt;/p&gt;
+
+&lt;p&gt;Reflectance Confocal Microscopy (RCM) is used for evaluation of human skin disorders and the effects of skin treatments by imaging the skin layers at different depths. Traditionally, clinical experts manually categorize the images captured into different skin layers. This time-consuming labeling task impedes the convenient analysis of skin image datasets. In recent automated image recognition tasks, deep learning with convolutional neural nets (CNN) has achieved remarkable results. However in many clinical settings, training data is often limited and insufficient for CNN training. For recognition of RCM skin images, we demonstrate that a CNN trained on a moderate size dataset leads to low accuracy. We introduce a hybrid deep learning approach which uses traditional texton-based feature vectors as input to train a deep neural network. This hybrid method uses fixed filters in the input layer instead of tuned filters, yet superior performance is achieved. Our dataset consists of 1500 images from 15 RCM stacks belonging to six different categories of skin layers. We show that our hybrid deep learning approach performs with a test accuracy of 82% compared with 51% for CNN. We also compare the results with additional proposed methods for RCM image recognition and show improved accuracy. This work was presented in ICPR 2016 as an oral presentation. &lt;/p&gt;
+
+&lt;p&gt;We then extend the experiments by using pre-trained CNN as feature extractors and fine-tune the pre-trained CNNs. This work is yet to be published, more details will be made available soon. &lt;/p&gt;
 
     &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/research/confocal-microscopy/&quot; rel=&quot;nofollow&quot;&gt;Confocal Microscopy for Classification of Skin Layers&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
   </content>
@@ -87,8 +90,6 @@ based on skin appearance. Furthermore, the use of non-negative matrix factorizat
 distribution of bacterial components. &lt;/p&gt;
 
 &lt;p&gt;Currently, I am developing advanced method of handling multiview high dimensional data by using computational appearance to supervise clustering of the bacteria genetic signature. This project is funded by Johnson &amp;amp; Johnson.&lt;/p&gt;
-
-&lt;p&gt;More details to be added soon.&lt;/p&gt;
 
 
     &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/research/microbiome-skin-appearance/&quot; rel=&quot;nofollow&quot;&gt;Skin Appearance and Skin Microbiome&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	

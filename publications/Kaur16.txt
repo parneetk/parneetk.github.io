@@ -1,0 +1,12 @@
+@ARTICLE{Kaur16, 
+author={P. Kaur and K. J. Dana and F. A. Romero and N. Gucunski}, 
+journal={IEEE Transactions on Cybernetics}, 
+title={Automated GPR Rebar Analysis for Robotic Bridge Deck Evaluation}, 
+year={2016}, 
+volume={46}, 
+number={10}, 
+pages={2265-2276}, 
+keywords={bridges (structures);feature extraction;gradient methods;ground penetrating radar;image classification;inspection;learning (artificial intelligence);radar detection;radar receivers;rebar;GPR sensor;automated GPR rebar analysis;automated rebar detection;embedded rebar;ground penetrating radar;image-based gradient feature;machine learning classification;manual interaction;offsite processing;rebar hyperbolic signature;rebar region detector;reinforced concrete bridge deck deterioration evaluation;robotic bridge deck evaluation;robust curve fitting;signal attenuation measurement;state-of-the-art robotic bridge inspection system;Bridges;Concrete;Ground penetrating radar;Image edge detection;Robots;Support vector machines;Training;Automatic rebar detection;depth correction;ground penetrating radar (GPR);histogram of oriented gradients (HOG);hyperbolic signature;machine learning;pattern recognition;robotic bridge inspection;robust curve fitting;support vector machines (SVM)}, 
+doi={10.1109/TCYB.2015.2474747}, 
+ISSN={2168-2267}, 
+month={Oct},}
