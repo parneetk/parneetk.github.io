@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Intro to NumPy • Parneet Kaur</title>
+    <meta name="description" content="Learn about array and matrix manipulation in Python">
+    	
+		<!-- Twitter Cards -->
+		<meta name="twitter:title" content="Intro to NumPy">
+		<meta name="twitter:description" content="Learn about array and matrix manipulation in Python">
+		<meta name="twitter:site" content="@_parneetkaur">
+		<meta name="twitter:creator" content="@_parneetkaur">
+		
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:image" content="http://parneetk.github.io/images/site-logo.png# 120x120 px default image used for Twitter summary card">
+		
+	
+		<!-- Open Graph -->
+		<meta property="og:locale" content="en_US">
+		<meta property="og:type" content="article">
+		<meta property="og:title" content="Intro to NumPy">
+		<meta property="og:description" content="Learn about array and matrix manipulation in Python">
+		<meta property="og:url" content="http://parneetk.github.io/blog/intro-to-numpy/">
+		<meta property="og:site_name" content="Parneet Kaur">
+    <link rel="canonical" href="http://parneetk.github.io/blog/intro-to-numpy/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="http://parneetk.github.io/sitemap.xml">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cleartype" content="on">
+
+    <!-- Webmaster Tools verifications -->
+    
+    
+    
+    
+
+    
+
+    <link rel="stylesheet" href="/assets/global-3c4fd48ce335e959c9281b521601047b.css">
+    <!-- HTML5 Shiv and Media Query Support for IE -->
+    <!--[if lt IE 9]>
+      <script src="/assets/vendor/html5shiv-885c726bf070ed12d4f7169c3cef6cac.js"></script>
+      <script src="/assets/vendor/respond-436602cb1583ac6782a71c2d567a5b2c.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body id="js-body">
+    <!--[if lt IE 9]><div class="upgrade notice-danger"><strong>Your browser is quite old!</strong> Why not <a href="http://whatbrowser.org/">upgrade to a newer one</a> to better enjoy this site?</div><![endif]-->
+    <header id="masthead">
+  <div class="masthead-contents">
+    <div class="logo-wrap">
+      <a href="/" class="site-title">Parneet Kaur</a>
+    </div>
+    <nav role="navigation" class="menu top-menu">
+      <ul class="menu-item">
+	
+    <li><a href="/">Home</a></li>
+  
+    <li><a href="/research/">Research</a></li>
+  
+    <li><a href="/projects/">Projects</a></li>
+  
+    <li><a href="/blog/">Blog</a></li>
+  
+    <li><a href="/contact-me/">Contact Me</a></li>
+  
+</ul>
+    </nav>
+  </div><!-- /.masthead-contents -->
+</header><!-- /.masthead -->
+    <nav role="navigation" id="js-menu" class="sliding-menu-content">
+  <h5>Parneet Kaur <span>Table of Contents</span></h5>
+  <ul class="menu-item">
+    <li>
+      <a href="/">
+        
+        <div class="title">Home</div>
+        
+      </a>
+    </li><li>
+      <a href="/research/">
+        
+        <div class="title">Research</div>
+        
+      </a>
+    </li><li>
+      <a href="/projects/">
+        
+        <div class="title">Projects</div>
+        
+      </a>
+    </li><li>
+      <a href="/blog/">
+        
+        <div class="title">Blog</div>
+        
+      </a>
+    </li><li>
+      <a href="/contact-me/">
+        
+        <div class="title">Contact Me</div>
+        
+      </a>
+    </li>
+  </ul>
+</nav>
+<button type="button" id="js-menu-trigger" class="sliding-menu-button lines-button x2" role="button" aria-label="Toggle Navigation">
+  <span class="lines"></span>
+</button>
+
+<div id="js-menu-screen" class="menu-screen"></div>
+
+    <div id="page-wrapper">
+      <div id="main" role="main">         
+  <article class="wrap" itemscope itemtype="http://schema.org/Article">
+    <div class="page-header">
+      
+      <div class="page-title">
+        
+  <nav class="breadcrumbs">
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://parneetk.github.io" itemprop="url"><span itemprop="title">Home</span></a> › 
+    </span>
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://parneetk.github.io/blog/" itemprop="url">
+        <span itemprop="title">
+          
+          
+            Blog
+              
+          
+        </span>
+      </a> › 
+    </span>
+  </nav><!-- /.breadcrumbs -->
+
+
+
+
+        <h1><span>Intro to NumPy</span></h1>
+      </div><!-- /.page-title -->
+    </div><!-- /.page-header -->
+    <div class="inner-wrap">
+      <div id="content" class="page-content" itemprop="articleBody">
+        <p>iPython Notebook for this tutorial is available <a href="https://github.com/parneetk/python-for-computer-vision/">here</a>.<br /></p>
+
+<p>NumPy is a package for scientific computing in Python which provides basic functionalities to manipulate arrays and matrices.</p>
+
+<h2 id="import-modules">Import Modules</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span></code></pre></div>
+
+<h2 id="arrays">Arrays</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span>
+<span class="k">print</span> <span class="s">&quot;Array: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">arr1</span>
+<span class="k">print</span> <span class="s">&quot;Datatype: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="nb">type</span><span class="p">(</span><span class="n">arr1</span><span class="p">)</span></code></pre></div>
+
+<pre><code>Array: [10 20 30 40]
+Datatype: &lt;type 'numpy.ndarray'&gt;
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># comparison to lists in Python</span>
+<span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&quot;List: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">list1</span>
+<span class="k">print</span> <span class="s">&quot;Datatype: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="nb">type</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span></code></pre></div>
+
+<pre><code>List: [10, 20, 30, 40]
+Datatype: &lt;type 'list'&gt;
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Accessing Array Elements</span>
+<span class="k">print</span> <span class="s">&quot;First element of arr1: </span><span class="si">%d</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">arr1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&quot;Size of arr1: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">arr1</span><span class="o">.</span><span class="n">shape</span>
+<span class="k">print</span> <span class="n">arr1</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span></code></pre></div>
+
+<pre><code>First element of arr1: 10
+Size of arr1: 4
+[10 20]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">arr</span></code></pre></div>
+
+<pre><code>[0 1 2 3 4 5 6 7 8 9]
+</code></pre>
+
+<h2 id="multidimensional-array">Multidimensional Array</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="nb">int</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">arr</span></code></pre></div>
+
+<pre><code>[[1 2 3]
+ [4 5 6]]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="k">print</span> <span class="n">arr</span>
+<span class="k">print</span> <span class="s">&quot;First element of arr: </span><span class="si">%d</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&quot;Size of arr: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">,)</span></code></pre></div>
+
+<pre><code>[[ 3 18 17]
+ [18  4 20]
+ [ 2 20 16]]
+First element of arr: 3
+Size of arr: (3, 3)
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">arr_zeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>  
+<span class="k">print</span> <span class="n">arr_zeros</span></code></pre></div>
+
+<pre><code>[[ 0.  0.  0.]
+ [ 0.  0.  0.]
+ [ 0.  0.  0.]]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">arr_ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>  
+<span class="k">print</span> <span class="n">arr_ones</span></code></pre></div>
+
+<pre><code>[[ 1.  1.  1.]
+ [ 1.  1.  1.]
+ [ 1.  1.  1.]]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">arr_identity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">int</span><span class="p">)</span>  
+<span class="k">print</span> <span class="n">arr_identity</span></code></pre></div>
+
+<pre><code>[[1 0 0]
+ [0 1 0]
+ [0 0 1]]
+</code></pre>
+
+<h2 id="array-indexing">Array Indexing</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">arr</span>
+<span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span></code></pre></div>
+
+<pre><code>6
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span></code></pre></div>
+
+<pre><code>14
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span></code></pre></div>
+
+<pre><code>6 14
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span> <span class="p">[</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span> <span class="c"># outputs a list</span></code></pre></div>
+
+<pre><code>[6, 14]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span> <span class="n">arr</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span> <span class="c"># same output as previous command</span></code></pre></div>
+
+<pre><code>[ 6 14]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span></code></pre></div>
+
+<pre><code>[ 6 11  2]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Boolean array indexing</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">arr</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">arr</span>
+<span class="k">print</span> <span class="n">b</span>
+<span class="k">print</span> <span class="n">arr</span><span class="p">[</span><span class="n">b</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">arr</span><span class="p">[</span><span class="n">arr</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">]</span></code></pre></div>
+
+<pre><code>[[ 6  6 12]
+ [13 11 14]
+ [17  4  2]]
+[[False False  True]
+ [ True  True  True]
+ [ True False False]]
+[12 13 11 14 17]
+[12 13 11 14 17]
+</code></pre>
+
+<h2 id="array-slicing">Array Slicing</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># rank 1 and rank 2 views of middle row</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">row1</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>    
+<span class="n">row2</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> 
+<span class="k">print</span> <span class="n">row1</span><span class="p">,</span> <span class="n">row1</span><span class="o">.</span><span class="n">shape</span>  
+<span class="k">print</span> <span class="n">row2</span><span class="p">,</span> <span class="n">row2</span><span class="o">.</span><span class="n">shape</span></code></pre></div>
+
+<pre><code>[ 4 16  8] (3,)
+[[ 4 16  8]] (1, 3)
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">arr_slice</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c"># assigned by reference</span>
+<span class="k">print</span> <span class="n">arr</span>
+<span class="k">print</span> <span class="n">arr_slice</span>
+<span class="n">arr_slice</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="c"># modifying arr_slice will modify arr</span>
+<span class="k">print</span> <span class="n">arr_slice</span>
+<span class="k">print</span> <span class="n">arr</span></code></pre></div>
+
+<pre><code>[[12  1 10]
+ [ 4 16  8]
+ [20  5 20]]
+[[ 1 10]
+ [16  8]]
+[[ 0 10]
+ [16  8]]
+[[12  0 10]
+ [ 4 16  8]
+ [20  5 20]]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># copy array to a new variable</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="k">print</span> <span class="n">arr</span>
+<span class="n">arr_new</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c"># new memory is allocated</span>
+<span class="n">arr_new</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="c"># modifying arr_new will not modify arr</span>
+<span class="k">print</span> <span class="n">arr_new</span>
+<span class="k">print</span> <span class="n">arr</span></code></pre></div>
+
+<pre><code>[[ 6 10  4]
+ [ 9 10  1]
+ [15  2  3]]
+[[ 0 10  4]
+ [ 9 10  1]
+ [15  2  3]]
+[[ 6 10  4]
+ [ 9 10  1]
+ [15  2  3]]
+</code></pre>
+
+<h2 id="basic-mathematics">Basic Mathematics</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="k">print</span> <span class="n">a</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="k">print</span> <span class="n">b</span></code></pre></div>
+
+<pre><code>[[1 2 3]
+ [3 4 6]]
+[[6 7 8]
+ [4 5 3]]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># element-wise multiplication </span>
+<span class="k">print</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span></code></pre></div>
+
+<pre><code>[[ 6 14 24]
+ [12 20 18]]
+[[ 6 14 24]
+ [12 20 18]]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># element-wise division</span>
+<span class="k">print</span> <span class="n">a</span><span class="o">/</span><span class="n">b</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span></code></pre></div>
+
+<pre><code>[[0 0 0]
+ [0 0 2]]
+[[0 0 0]
+ [0 0 2]]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># element-wise power operation</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span></code></pre></div>
+
+<pre><code>[[ 1  4  9]
+ [ 9 16 36]]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># transpose</span>
+<span class="k">print</span> <span class="n">a</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">a</span><span class="o">.</span><span class="n">T</span></code></pre></div>
+
+<pre><code>[[1 3]
+ [2 4]
+ [3 6]]
+[[1 3]
+ [2 4]
+ [3 6]]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># matrix multiplication</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span></code></pre></div>
+
+<pre><code>[[44 23]
+ [94 50]]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># concatanate columns of a and b </span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span> 
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span></code></pre></div>
+
+<pre><code>[[1 2 3 6 7 8]
+ [3 4 6 4 5 3]]
+[[1 2 3 6 7 8]
+ [3 4 6 4 5 3]]
+[[1 2 3 6 7 8]
+ [3 4 6 4 5 3]]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># concatanate rows of a and b </span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span> 
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span></code></pre></div>
+
+<pre><code>[[1 2 3]
+ [3 4 6]
+ [6 7 8]
+ [4 5 3]]
+[[1 2 3]
+ [3 4 6]
+ [6 7 8]
+ [4 5 3]]
+[[1 2 3]
+ [3 4 6]
+ [6 7 8]
+ [4 5 3]]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># find maximum elements</span>
+<span class="k">print</span> <span class="n">a</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c"># maximum element in a</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c"># maximum element in each column</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c"># maximum element in each row</span></code></pre></div>
+
+<pre><code>[[1 2 3]
+ [3 4 6]]
+6
+[3 4 6]
+[3 6]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># sum  </span>
+<span class="k">print</span> <span class="n">a</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c"># sum of all elements in a</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c"># sum of elements in each column</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c"># sum of elements in each row</span></code></pre></div>
+
+<pre><code>[[1 2 3]
+ [3 4 6]]
+19
+[4 6 9]
+[ 6 13]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># repeat an array several times</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">a</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">a</span><span class="p">,(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">a</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span></code></pre></div>
+
+<pre><code>[[1 2 3]
+ [3 4 6]
+ [1 2 3]
+ [3 4 6]
+ [1 2 3]
+ [3 4 6]]
+[[1 2 3 1 2 3 1 2 3]
+ [3 4 6 3 4 6 3 4 6]]
+[[1 2 3 1 2 3 1 2 3]
+ [3 4 6 3 4 6 3 4 6]
+ [1 2 3 1 2 3 1 2 3]
+ [3 4 6 3 4 6 3 4 6]]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># reshape</span>
+<span class="k">print</span> <span class="n">a</span>
+<span class="k">print</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">a</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="k">print</span> <span class="n">a1</span>
+<span class="k">print</span> <span class="n">a1</span><span class="o">.</span><span class="n">shape</span></code></pre></div>
+
+<pre><code>[[1 2 3]
+ [3 4 6]]
+(2, 3)
+[[1 2 3 3 4 6]]
+(1, 6)
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># inverse</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">]])</span>
+<span class="k">print</span> <span class="n">c</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">c</span><span class="p">)</span></code></pre></div>
+
+<pre><code>[[ 2  2 -1]
+ [ 4  0  2]
+ [ 0  6 -3]]
+[[ 0.5         0.         -0.16666667]
+ [-0.5         0.25        0.33333333]
+ [-1.          0.5         0.33333333]]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># rank</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">c</span><span class="p">)</span></code></pre></div>
+
+<pre><code>2
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># svd</span>
+<span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Vh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">S</span></code></pre></div>
+
+<pre><code>[ 7.13218561  4.75726728  0.70734462]
+</code></pre>
+
+
+        <hr />
+        
+        
+
+        <footer class="page-footer">
+          <div class="author-image">
+	<img src="/images/bio-photo.png" alt="Parneet Kaur">
+</div><!-- ./author-image -->
+<div class="author-content">
+	<h3 class="author-name" >Written by <span itemprop="author">Parneet Kaur</span></h3>
+	<p class="author-bio">PhD candidate at Rutgers University.</p>
+  <p class="author-follow"><a href="https://twitter.com/_parneetkaur" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @_parneetkaur</a></p>
+</div><!-- ./author-content -->
+          <div class="page-meta">
+	
+    <span><i class="fa fa-folder-open-o fa-fw"></i> &nbsp; <a href="http://parneetk.github.io/tag/python-for-cv/" title="python_for_cv" rel="tag">python_for_cv</a></span>
+  
+	
+    <span><i class="fa fa-clock-o fa-fw"></i> &nbsp; Updated <time datetime="2017-01-06T17:00:00Z" itemprop="datePublished">January 06, 2017</time></span>
+  
+</div><!-- /.page-meta -->
+        </footer><!-- /.footer -->
+      </div><!-- /.content -->
+    </div><!-- /.inner-wrap -->
+    <div class="sidebar">
+		<h3>Recent Posts</h3>
+		<ul>
+		<div>
+			<dl class="col">
+				
+					<dd><a href="/blog/intro-to-numpy/">Intro to NumPy</a></dd>
+				
+					<dd><a href="/blog/python_quickstart/">Python Quickstart </a></dd>
+				
+					<dd><a href="/blog/projectcsgirls-mentor/">My experience as a projectCSGirls mentor</a></dd>
+				
+			</dl>
+		</div>
+		</ul>
+		<h3>All Tags</h3>
+		<ul>
+		
+			<a href="/tag/projects/">
+				projects
+			</a>
+		
+			<a href="/tag/research/">
+				research
+			</a>
+		
+			<a href="/tag/women_in_tech/">
+				women_in_tech
+			</a>
+		
+			<a href="/tag/python_for_cv/">
+				python_for_cv
+			</a>
+		
+		</ul>
+    </div><!-- /.sidebar -->
+  </article><!-- /.wrap -->
+  
+  <div class="wrap">
+    <div class="related-posts">
+  <h3>Read This Next</h3>
+  <div class="tiles">
+  
+    <article class="tile" itemscope itemtype="http://schema.org/Article">
+	<h2 class="post-title" itemprop="name"><a href="http://parneetk.github.io/blog/python_quickstart/">Python Quickstart </a></h2>
+  <p class="entry-date date published"><time datetime="2017-01-05" itemprop="datePublished">January 05, 2017</time></p>
+	<p class="post-excerpt" itemprop="description">Introduction to Python Basics</p>
+</article><!-- /.tile -->
+  
+  </div>
+</div>
+  </div><!-- /.wrap -->
+  
+  
+  <div class="wrap">
+    <aside class="inner-wrap"><div class="comments">
+	<h3>Leave a Comment</h3>
+	<div id="disqus_thread"></div>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div><!-- /.comments --></aside>
+    
+  </div><!-- /.wrap -->
+  
+</div><!-- /#main -->
+
+
+      <footer role="contentinfo" id="site-footer">
+	<p class="copyright">&#169; 2017 Parneet Kaur</p>
+</footer>
+    </div>
+
+    <script src="/assets/main-df82fc05892ed74ebcc5daea31e5af0e.js"></script>
+
+    <!-- Google Universal Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-57868514-1', 'parneetk.github.io');
+      ga('require', 'linkid', 'linkid.js');
+      ga('require', 'displayfeatures');
+      ga('send', 'pageview');
+    </script>
+
+    
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'parneetk';
+      var disqus_title = 'Intro to NumPy';
+      var disqus_url = 'http://parneetk.github.io/blog/intro-to-numpy/';
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    
+
+  </body>
+
+</html>

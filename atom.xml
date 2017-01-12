@@ -11,7 +11,7 @@
 <subtitle>Personal website of Parneet Kaur.</subtitle>
 <link href="http://parneetk.github.io/atom.xml" rel="self"/>
 <link href="http://parneetk.github.io/" rel="alternate" type="text/html"/>
-<updated>2017-01-12T11:48:20-05:00</updated>
+<updated>2017-01-12T11:53:24-05:00</updated>
 <id>http://parneetk.github.io/</id>
 <author>
   <name>Parneet Kaur</name>
@@ -21,10 +21,10 @@
 
 
 <entry>
-  <title>Intro To Numpy</title>
-  <link href="http://parneetk.github.io/intro-to-numpy/"/>
-  <updated>2017-01-06T00:00:00-05:00</updated>
-  <id>http://parneetk.github.io/intro-to-numpy</id>
+  <title>Intro to NumPy</title>
+  <link href="http://parneetk.github.io/blog/intro-to-numpy/"/>
+  <updated>2017-01-06T17:00:00-05:00</updated>
+  <id>http://parneetk.github.io/blog/intro-to-numpy</id>
   <author>
     <name>Parneet Kaur</name>
     <uri>http://parneetk.github.io/</uri>
@@ -32,23 +32,7 @@
   </author>
   <content type="html">
     
-    
-&lt;hr /&gt;
-&lt;p&gt;layout: blog
-published: true
-title: “Intro to NumPy”
-excerpt: Learn about array and matrix manipulation in Python
-category: blog
-image: 
-  feature: 
-  teaser: 
-date: 2017-01-06 22:00:00.000000000 +00:00
-tags: python_for_cv
-comments: true
-ads: false
-—&lt;/p&gt;
-
-&lt;p&gt;iPython Notebook for this tutorial is available &lt;a href=&quot;https://github.com/parneetk/python-for-computer-vision/&quot;&gt;here&lt;/a&gt;.&lt;br /&gt;&lt;/p&gt;
+    &lt;p&gt;iPython Notebook for this tutorial is available &lt;a href=&quot;https://github.com/parneetk/python-for-computer-vision/&quot;&gt;here&lt;/a&gt;.&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;NumPy is a package for scientific computing in Python which provides basic functionalities to manipulate arrays and matrices.&lt;/p&gt;
 
@@ -415,7 +399,7 @@ Size of arr: (3, 3)
 &lt;/code&gt;&lt;/pre&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/intro-to-numpy/&quot; rel=&quot;nofollow&quot;&gt;Intro To Numpy&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
+    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/blog/intro-to-numpy/&quot; rel=&quot;nofollow&quot;&gt;Intro to NumPy&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
   </content>
 </entry>
 
