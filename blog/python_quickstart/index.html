@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Python Quickstart  • Parneet Kaur</title>
+    <meta name="description" content="Introduction to Python Basics">
+    	
+		<!-- Twitter Cards -->
+		<meta name="twitter:title" content="Python Quickstart ">
+		<meta name="twitter:description" content="Introduction to Python Basics">
+		<meta name="twitter:site" content="@_parneetkaur">
+		<meta name="twitter:creator" content="@_parneetkaur">
+		
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:image" content="http://parneetk.github.io/images/site-logo.png# 120x120 px default image used for Twitter summary card">
+		
+	
+		<!-- Open Graph -->
+		<meta property="og:locale" content="en_US">
+		<meta property="og:type" content="article">
+		<meta property="og:title" content="Python Quickstart ">
+		<meta property="og:description" content="Introduction to Python Basics">
+		<meta property="og:url" content="http://parneetk.github.io/blog/python_quickstart/">
+		<meta property="og:site_name" content="Parneet Kaur">
+    <link rel="canonical" href="http://parneetk.github.io/blog/python_quickstart/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="http://parneetk.github.io/sitemap.xml">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cleartype" content="on">
+
+    <!-- Webmaster Tools verifications -->
+    
+    
+    
+    
+
+    
+
+    <link rel="stylesheet" href="/assets/global-3c4fd48ce335e959c9281b521601047b.css">
+    <!-- HTML5 Shiv and Media Query Support for IE -->
+    <!--[if lt IE 9]>
+      <script src="/assets/vendor/html5shiv-885c726bf070ed12d4f7169c3cef6cac.js"></script>
+      <script src="/assets/vendor/respond-436602cb1583ac6782a71c2d567a5b2c.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body id="js-body">
+    <!--[if lt IE 9]><div class="upgrade notice-danger"><strong>Your browser is quite old!</strong> Why not <a href="http://whatbrowser.org/">upgrade to a newer one</a> to better enjoy this site?</div><![endif]-->
+    <header id="masthead">
+  <div class="masthead-contents">
+    <div class="logo-wrap">
+      <a href="/" class="site-title">Parneet Kaur</a>
+    </div>
+    <nav role="navigation" class="menu top-menu">
+      <ul class="menu-item">
+	
+    <li><a href="/">Home</a></li>
+  
+    <li><a href="/research/">Research</a></li>
+  
+    <li><a href="/projects/">Projects</a></li>
+  
+    <li><a href="/blog/">Blog</a></li>
+  
+    <li><a href="/contact-me/">Contact Me</a></li>
+  
+</ul>
+    </nav>
+  </div><!-- /.masthead-contents -->
+</header><!-- /.masthead -->
+    <nav role="navigation" id="js-menu" class="sliding-menu-content">
+  <h5>Parneet Kaur <span>Table of Contents</span></h5>
+  <ul class="menu-item">
+    <li>
+      <a href="/">
+        
+        <div class="title">Home</div>
+        
+      </a>
+    </li><li>
+      <a href="/research/">
+        
+        <div class="title">Research</div>
+        
+      </a>
+    </li><li>
+      <a href="/projects/">
+        
+        <div class="title">Projects</div>
+        
+      </a>
+    </li><li>
+      <a href="/blog/">
+        
+        <div class="title">Blog</div>
+        
+      </a>
+    </li><li>
+      <a href="/contact-me/">
+        
+        <div class="title">Contact Me</div>
+        
+      </a>
+    </li>
+  </ul>
+</nav>
+<button type="button" id="js-menu-trigger" class="sliding-menu-button lines-button x2" role="button" aria-label="Toggle Navigation">
+  <span class="lines"></span>
+</button>
+
+<div id="js-menu-screen" class="menu-screen"></div>
+
+    <div id="page-wrapper">
+      <div id="main" role="main">         
+  <article class="wrap" itemscope itemtype="http://schema.org/Article">
+    <div class="page-header">
+      
+      <div class="page-title">
+        
+  <nav class="breadcrumbs">
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://parneetk.github.io" itemprop="url"><span itemprop="title">Home</span></a> › 
+    </span>
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://parneetk.github.io/blog/" itemprop="url">
+        <span itemprop="title">
+          
+          
+            Blog
+              
+          
+        </span>
+      </a> › 
+    </span>
+  </nav><!-- /.breadcrumbs -->
+
+
+
+
+        <h1><span>Python Quickstart </span></h1>
+      </div><!-- /.page-title -->
+    </div><!-- /.page-header -->
+    <div class="inner-wrap">
+      <div id="content" class="page-content" itemprop="articleBody">
+        <p>iPython Notebook for this tutorial is available <a href="https://github.com/parneetk/python-for-computer-vision/blob/master/01_python_quickstart.ipynb">here</a>.</p>
+
+<h2 id="numbers">Numbers</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="k">print</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
+<span class="k">print</span> <span class="s">&quot;</span><span class="si">%d</span><span class="s"> + </span><span class="si">%d</span><span class="s"> = </span><span class="si">%d</span><span class="s">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span></code></pre></div>
+
+<pre><code>10 2 12
+10 + 2 = 12
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span>
+<span class="k">print</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span>
+<span class="k">print</span> <span class="s">&quot;</span><span class="si">%f</span><span class="s"> * </span><span class="si">%d</span><span class="s"> = </span><span class="si">%f</span><span class="s">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span></code></pre></div>
+
+<pre><code>10.0 3 30.0
+10.000000 * 3 = 30.000000
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">pi</span> <span class="o">=</span> <span class="mi">22</span><span class="o">/</span><span class="mi">7</span>
+<span class="k">print</span> <span class="s">&quot;pi = </span><span class="si">%f</span><span class="s"> -&gt; This is not as expected because we used </span><span class="se">\</span>
+<span class="s">integer values 22 and 7. Use 22.0 and 7.0.&quot;</span> <span class="o">%</span><span class="n">pi</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="mf">22.0</span><span class="o">/</span><span class="mf">7.0</span>
+<span class="k">print</span> <span class="s">&quot;pi = </span><span class="si">%f</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">pi</span>
+<span class="k">print</span> <span class="s">&quot;pi = </span><span class="si">%.2f</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">pi</span></code></pre></div>
+
+<pre><code>pi = 3.000000 -&gt; This is not as expected because we used integer values 22 and 7. Use 22.0 and 7.0.
+pi = 3.142857
+pi = 3.14
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#typecasting</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> 
+<span class="k">print</span> <span class="n">b</span><span class="p">,</span> <span class="n">d</span></code></pre></div>
+
+<pre><code>3 3.0
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">e</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="c"># modulo</span>
+<span class="k">print</span> <span class="n">e</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">a</span> <span class="o">**</span> <span class="n">b</span><span class="c"># power</span>
+<span class="k">print</span> <span class="n">f</span></code></pre></div>
+
+<pre><code>1.0
+1000.0
+</code></pre>
+
+<h2 id="strings">Strings</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">str1</span> <span class="o">=</span> <span class="s">&quot;Learning&quot;</span>
+<span class="k">print</span> <span class="n">str1</span>
+<span class="n">len1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">len1</span></code></pre></div>
+
+<pre><code>Learning
+8
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">str2</span> <span class="o">=</span> <span class="s">&#39;Python!&#39;</span>
+<span class="k">print</span> <span class="n">str2</span>
+<span class="n">str3</span> <span class="o">=</span> <span class="n">str1</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">str2</span>
+<span class="k">print</span> <span class="n">str3</span>
+<span class="k">print</span> <span class="s">&quot;Concatanated string is: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">str3</span>
+<span class="n">len3</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">str3</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;Length of string </span><span class="si">%s</span><span class="s"> is </span><span class="si">%d</span><span class="s">.&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">str3</span><span class="p">,</span> <span class="n">len3</span><span class="p">)</span></code></pre></div>
+
+<pre><code>Python!
+Learning Python!
+Concatanated string is: Learning Python!
+Length of string Learning Python! is 16.
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Slice a string</span>
+<span class="n">substr1</span> <span class="o">=</span> <span class="n">str3</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span> <span class="c"># [start:stop]</span>
+<span class="k">print</span> <span class="n">substr1</span>
+<span class="n">substr2</span> <span class="o">=</span> <span class="n">str3</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="c"># [start:stop:step]</span>
+<span class="k">print</span> <span class="n">substr2</span>
+<span class="n">substr3</span> <span class="o">=</span> <span class="n">str3</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="c"># [start:stop:step]</span>
+<span class="k">print</span> <span class="n">substr3</span></code></pre></div>
+
+<pre><code>ning Pyt
+ning Pyt
+nn y
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Reverse a string</span>
+<span class="n">revStr</span> <span class="o">=</span> <span class="n">str3</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">revStr</span></code></pre></div>
+
+<pre><code>!nohtyP gninraeL
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># indexing and  occurances</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">str3</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">&quot;n&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">count</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">str3</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">&quot;n&quot;</span><span class="p">)</span> <span class="c"># index of first occurance</span>
+<span class="k">print</span> <span class="n">index</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">str3</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s">&quot;n&quot;</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">indices</span></code></pre></div>
+
+<pre><code>3
+4
+[4, 6, 14]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Split</span>
+<span class="n">all_str</span> <span class="o">=</span> <span class="n">str3</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">all_str</span></code></pre></div>
+
+<pre><code>['Learning', 'Python!']
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># repeat a string</span>
+<span class="n">str4</span> <span class="o">=</span> <span class="n">str1</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="k">print</span> <span class="n">str4</span></code></pre></div>
+
+<pre><code>LearningLearningLearningLearningLearningLearningLearningLearningLearningLearning
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">teststr1</span> <span class="o">=</span> <span class="s">&quot;Learn&quot;</span>
+<span class="n">teststr2</span> <span class="o">=</span> <span class="s">&quot;C++&quot;</span>
+<span class="n">ans1</span> <span class="o">=</span> <span class="n">str3</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">teststr1</span><span class="p">)</span>
+<span class="n">ans2</span> <span class="o">=</span> <span class="n">str3</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">teststr2</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;Does </span><span class="si">%s</span><span class="s"> starts with </span><span class="si">%s</span><span class="s">? </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">str3</span><span class="p">,</span> <span class="n">teststr1</span><span class="p">,</span> <span class="n">ans1</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;Does </span><span class="si">%s</span><span class="s"> ends with </span><span class="si">%s</span><span class="s">? </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">str3</span><span class="p">,</span> <span class="n">teststr2</span><span class="p">,</span> <span class="n">ans2</span><span class="p">)</span></code></pre></div>
+
+<pre><code>Does Learning Python! starts with Learn? True
+Does Learning Python! ends with C++? False
+</code></pre>
+
+<h2 id="lists">Lists</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">list1</span></code></pre></div>
+
+<pre><code>[10, 20, 30]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">list2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">list2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">list2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">list2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;list2: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">list2</span>
+<span class="k">print</span> <span class="s">&quot;First number in list2 is </span><span class="si">%d</span><span class="s">.&quot;</span> <span class="o">%</span><span class="n">list2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&quot;Last number in list2 is </span><span class="si">%d</span><span class="s">.&quot;</span> <span class="o">%</span><span class="n">list2</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></code></pre></div>
+
+<pre><code>list2: [100, 200, 300]
+First number in list2 is 100.
+Last number in list2 is 300.
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">list2</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></code></pre></div>
+
+<pre><code>100
+200
+300
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">list3</span> <span class="o">=</span> <span class="n">list1</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="k">print</span> <span class="s">&quot;Repeated list is: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">list3</span></code></pre></div>
+
+<pre><code>Repeated list is: [10, 20, 30, 10, 20, 30, 10, 20, 30]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">l</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list3</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;Length of list3 is </span><span class="si">%d</span><span class="s">.&quot;</span> <span class="o">%</span><span class="n">l</span></code></pre></div>
+
+<pre><code>Length of list3 is 9.
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">c</span> <span class="o">=</span> <span class="n">list3</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;10 ocuurs </span><span class="si">%d</span><span class="s"> times in list3.&quot;</span> <span class="o">%</span><span class="n">c</span></code></pre></div>
+
+<pre><code>10 ocuurs 3 times in list3.
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Multiply each element of a list my a number</span>
+<span class="n">list4</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="mi">3</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">list1</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">list4</span></code></pre></div>
+
+<pre><code>[30, 60, 90]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">list5</span> <span class="o">=</span> <span class="n">list1</span> <span class="o">+</span> <span class="n">list2</span>
+<span class="k">print</span> <span class="s">&quot;Concatanated list is: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">list5</span></code></pre></div>
+
+<pre><code>Concatanated list is: [10, 20, 30, 100, 200, 300]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># element-wise addition without using numpy</span>
+<span class="n">list6</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span><span class="n">list2</span><span class="p">)]</span>
+<span class="k">print</span> <span class="n">list6</span></code></pre></div>
+
+<pre><code>[110, 220, 330]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># slicing a list</span>
+<span class="n">list7</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="k">print</span> <span class="n">list7</span>
+<span class="n">list8</span> <span class="o">=</span> <span class="n">list7</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="c">#[start:stop]</span>
+<span class="k">print</span> <span class="n">list8</span>
+<span class="n">list9</span> <span class="o">=</span> <span class="n">list7</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="c">#[start:stop:step]</span>
+<span class="k">print</span> <span class="n">list9</span>
+<span class="n">list10</span> <span class="o">=</span> <span class="n">list7</span><span class="p">[</span><span class="mi">9</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="c">#[start:stop:step]</span>
+<span class="k">print</span> <span class="n">list10</span></code></pre></div>
+
+<pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[3, 4, 5]
+[0, 2, 4, 6, 8]
+[9, 7, 5, 3, 1]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># delete an element in a list</span>
+<span class="k">print</span> <span class="n">list7</span>
+<span class="k">del</span> <span class="n">list7</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">list7</span></code></pre></div>
+
+<pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[0, 1, 2, 3, 4, 6, 7, 8, 9]
+</code></pre>
+
+<h2 id="control-flow">Control Flow</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># while statement</span>
+<span class="c"># print fibonacci series</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">while</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+<span class="k">print</span> <span class="n">c</span></code></pre></div>
+
+<pre><code>[1, 1, 2, 3, 5, 8, 13]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># conditionals</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;Enter an integer: &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">%</span><span class="mi">3</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;</span><span class="si">%d</span><span class="s"> is divisible by 3&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;</span><span class="si">%d</span><span class="s"> is not divisible by 3&quot;</span> <span class="o">%</span><span class="n">x</span></code></pre></div>
+
+<pre><code>Enter an integer: 10
+10 is not divisible by 3
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># for statement</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">%</span><span class="mi">3</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;Numbers divisible by 3 are: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">result</span></code></pre></div>
+
+<pre><code>Numbers divisible by 3 are: [0, 30, 60, 90]
+</code></pre>
+
+<h2 id="dictionaries">Dictionaries</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">phonebook</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Sherlock&#39;</span><span class="p">:</span> <span class="mi">976827</span><span class="p">,</span> <span class="s">&#39;John&#39;</span><span class="p">:</span> <span class="mi">973564</span><span class="p">}</span>
+<span class="n">phonebook</span><span class="p">[</span><span class="s">&#39;Mycroft&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">972635</span>
+<span class="k">print</span> <span class="n">phonebook</span>
+<span class="k">print</span> <span class="n">phonebook</span><span class="p">[</span><span class="s">&#39;Sherlock&#39;</span><span class="p">]</span></code></pre></div>
+
+<pre><code>{'John': 973564, 'Sherlock': 976827, 'Mycroft': 972635}
+976827
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span> <span class="s">&quot;Keys: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">phonebook</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&quot;Values: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">phonebook</span><span class="o">.</span><span class="n">values</span><span class="p">()</span></code></pre></div>
+
+<pre><code>Keys: ['John', 'Sherlock', 'Mycroft']
+Values: [973564, 976827, 972635]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">phonebook</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s"> -&gt; </span><span class="si">%d</span><span class="s"> &quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="p">)</span></code></pre></div>
+
+<pre><code>John -&gt; 973564 
+Sherlock -&gt; 976827 
+Mycroft -&gt; 972635 
+</code></pre>
+
+<h2 id="sets">Sets</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">alphabets</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s">&#39;abcdefghijk&#39;</span><span class="p">)</span>
+<span class="n">vowels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s">&#39;aeiou&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">alphabets</span>
+<span class="k">print</span> <span class="n">vowels</span>
+<span class="k">print</span> <span class="n">alphabets</span> <span class="o">-</span> <span class="n">vowels</span>
+<span class="k">print</span> <span class="n">vowels</span> <span class="o">-</span> <span class="n">alphabets</span>
+<span class="k">print</span> <span class="n">alphabets</span> <span class="o">&amp;</span> <span class="n">vowels</span>
+<span class="k">print</span> <span class="n">alphabets</span> <span class="o">|</span> <span class="n">vowels</span></code></pre></div>
+
+<pre><code>set(['a', 'c', 'b', 'e', 'd', 'g', 'f', 'i', 'h', 'k', 'j'])
+set(['a', 'i', 'e', 'u', 'o'])
+set(['c', 'b', 'd', 'g', 'f', 'h', 'k', 'j'])
+set(['u', 'o'])
+set(['a', 'i', 'e'])
+set(['a', 'c', 'b', 'e', 'd', 'g', 'f', 'i', 'h', 'k', 'j', 'o', 'u'])
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">new_set</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vowels</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">alphabets</span><span class="p">}</span>
+<span class="k">print</span> <span class="n">new_set</span></code></pre></div>
+
+<pre><code>set(['u', 'o'])
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vowels</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&#39;#</span><span class="si">%d</span><span class="s">: </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span></code></pre></div>
+
+<pre><code>#1: a
+#2: i
+#3: e
+#4: u
+#5: o
+</code></pre>
+
+<h2 id="tuples">Tuples</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">t1</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">,</span><span class="s">&#39;abc&#39;</span>
+<span class="k">print</span> <span class="n">t1</span></code></pre></div>
+
+<pre><code>(10, 20, 'a', 'abc')
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">v</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">t1</span>
+<span class="k">print</span> <span class="n">v</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span></code></pre></div>
+
+<pre><code>10 20 a abc
+</code></pre>
+
+<h2 id="list-files-in-a-directory">List files in a directory</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># list all files in a directory</span>
+<span class="n">filenames</span> <span class="o">=</span> <span class="err">!</span><span class="n">ls</span> <span class="n">data</span>
+<span class="n">filenames</span></code></pre></div>
+
+<pre><code>['butterfly.png',
+ 'conservatory.png',
+ 'flowers.png',
+ 'lenna.png',
+ 'painting.png']
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># list files with a specific file extension</span>
+<span class="n">filenames</span> <span class="o">=</span> <span class="err">!</span><span class="n">ls</span> <span class="n">data</span><span class="o">/*.</span><span class="n">png</span>
+<span class="n">filenames</span></code></pre></div>
+
+<pre><code>['data/butterfly.png',
+ 'data/conservatory.png',
+ 'data/flowers.png',
+ 'data/lenna.png',
+ 'data/painting.png']
+</code></pre>
+
+<h2 id="random-numbers">Random Numbers</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">random</span>
+<span class="c"># generate a random number in a given range</span>
+<span class="n">rnd1</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c">#random integer between (start,stop)</span>
+<span class="k">print</span> <span class="n">rnd1</span>
+<span class="n">rnd2</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c"># random integer between (start,stop) in steps of (step)</span>
+<span class="k">print</span> <span class="n">rnd2</span></code></pre></div>
+
+<pre><code>31
+49
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># select a random number from a given list</span>
+<span class="n">listA</span>  <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">)]</span>
+<span class="n">rnd3</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">listA</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">listA</span>
+<span class="k">print</span> <span class="n">rnd3</span></code></pre></div>
+
+<pre><code>[0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+40
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># sample a few numbers randomly from a given list</span>
+<span class="n">listB</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">listA</span><span class="p">,</span>  <span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">listB</span></code></pre></div>
+
+<pre><code>[90, 40, 0]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># shuffle all the numbers in a given list</span>
+<span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">listA</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">listA</span></code></pre></div>
+
+<pre><code>[60, 80, 70, 30, 10, 0, 50, 40, 20, 90]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># generate same random numbers at each run</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">2017</span><span class="p">)</span>
+<span class="n">rndA</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">rndA</span></code></pre></div>
+
+<pre><code>20
+</code></pre>
+
+<h2 id="functions">Functions</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">iseven</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;true&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">&#39;false&#39;</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">x</span><span class="p">,</span><span class="n">iseven</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></code></pre></div>
+
+<pre><code>1 false
+2 true
+3 false
+4 true
+5 false
+6 true
+7 false
+8 true
+9 false
+10 true
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># optional argument</span>
+<span class="k">def</span> <span class="nf">join_strings</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">space</span><span class="p">):</span>
+        <span class="nb">str</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">y</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">str</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+    <span class="k">return</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+
+<span class="n">str1</span> <span class="o">=</span> <span class="n">join_strings</span><span class="p">(</span><span class="s">&#39;Hello&#39;</span><span class="p">,</span><span class="s">&#39;World&#39;</span><span class="p">)</span> 
+<span class="k">print</span> <span class="n">str1</span>
+<span class="n">str2</span> <span class="o">=</span> <span class="n">join_strings</span><span class="p">(</span><span class="s">&#39;Hello&#39;</span><span class="p">,</span><span class="s">&#39;World&#39;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>  
+<span class="k">print</span> <span class="n">str2</span></code></pre></div>
+
+<pre><code>HelloWorld
+Hello World
+</code></pre>
+
+
+        <hr />
+        
+        
+
+        <footer class="page-footer">
+          <div class="author-image">
+	<img src="/images/bio-photo.png" alt="Parneet Kaur">
+</div><!-- ./author-image -->
+<div class="author-content">
+	<h3 class="author-name" >Written by <span itemprop="author">Parneet Kaur</span></h3>
+	<p class="author-bio">PhD candidate at Rutgers University.</p>
+  <p class="author-follow"><a href="https://twitter.com/_parneetkaur" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @_parneetkaur</a></p>
+</div><!-- ./author-content -->
+          <div class="page-meta">
+	
+    <span><i class="fa fa-folder-open-o fa-fw"></i> &nbsp; <a href="http://parneetk.github.io/tag/python-for-cv/" title="python_for_cv" rel="tag">python_for_cv</a></span>
+  
+	
+    <span><i class="fa fa-clock-o fa-fw"></i> &nbsp; Updated <time datetime="2016-01-10T17:00:00Z" itemprop="datePublished">January 10, 2016</time></span>
+  
+</div><!-- /.page-meta -->
+        </footer><!-- /.footer -->
+      </div><!-- /.content -->
+    </div><!-- /.inner-wrap -->
+    <div class="sidebar">
+		<h3>Recent Posts</h3>
+		<ul>
+		<div>
+			<dl class="col">
+				
+					<dd><a href="/blog/python_quickstart/">Python Quickstart </a></dd>
+				
+					<dd><a href="/blog/projectcsgirls-mentor/">My experience as a projectCSGirls mentor</a></dd>
+				
+			</dl>
+		</div>
+		</ul>
+		<h3>All Tags</h3>
+		<ul>
+		
+			<a href="/tag/projects/">
+				projects
+			</a>
+		
+			<a href="/tag/research/">
+				research
+			</a>
+		
+			<a href="/tag/women_in_tech/">
+				women_in_tech
+			</a>
+		
+			<a href="/tag/python_for_cv/">
+				python_for_cv
+			</a>
+		
+		</ul>
+    </div><!-- /.sidebar -->
+  </article><!-- /.wrap -->
+  
+  <div class="wrap">
+    <div class="related-posts">
+  <h3>Read This Next</h3>
+  <div class="tiles">
+  
+  </div>
+</div>
+  </div><!-- /.wrap -->
+  
+  
+  <div class="wrap">
+    <aside class="inner-wrap"><div class="comments">
+	<h3>Leave a Comment</h3>
+	<div id="disqus_thread"></div>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div><!-- /.comments --></aside>
+    
+  </div><!-- /.wrap -->
+  
+</div><!-- /#main -->
+
+
+      <footer role="contentinfo" id="site-footer">
+	<p class="copyright">&#169; 2017 Parneet Kaur</p>
+</footer>
+    </div>
+
+    <script src="/assets/main-df82fc05892ed74ebcc5daea31e5af0e.js"></script>
+
+    <!-- Google Universal Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-57868514-1', 'parneetk.github.io');
+      ga('require', 'linkid', 'linkid.js');
+      ga('require', 'displayfeatures');
+      ga('send', 'pageview');
+    </script>
+
+    
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'parneetk';
+      var disqus_title = 'Python Quickstart ';
+      var disqus_url = 'http://parneetk.github.io/blog/python_quickstart/';
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    
+
+  </body>
+
+</html>
