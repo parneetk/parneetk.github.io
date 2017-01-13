@@ -165,9 +165,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 
-<p><img src="http://parneetk.github.io/images/2017-01-07-intro-to-matplotlib_files/2017-01-07-intro-to-matplotlib_4_0.png" alt="png" /></p>
+<p><img src="2017-01-07-intro-to-matplotlib_files/2017-01-07-intro-to-matplotlib_4_0.png" alt="png" /></p>
 
-<p><img src="http://parneetk.github.io/images/2017-01-07-intro-to-matplotlib_files/2017-01-07-intro-to-matplotlib_4_1.png" alt="png" /></p>
+<p><img src="2017-01-07-intro-to-matplotlib_files/2017-01-07-intro-to-matplotlib_4_1.png" alt="png" /></p>
 
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># plot data on a single plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;sin(x)&quot;</span><span class="p">)</span>
@@ -177,7 +177,7 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;upper left&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 
-<p><img src="http://parneetk.github.io/images/2017-01-07-intro-to-matplotlib_files/2017-01-07-intro-to-matplotlib_5_0.png" alt="png" /></p>
+<p><img src="2017-01-07-intro-to-matplotlib_files/2017-01-07-intro-to-matplotlib_5_0.png" alt="png" /></p>
 
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># change line style</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">&quot;dashed&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s">&quot;o&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;green&quot;</span><span class="p">)</span>
@@ -189,7 +189,6 @@
 <span class="c">#configure  Y axes</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.25</span><span class="p">,</span><span class="mf">1.25</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">1.25</span><span class="p">,</span><span class="mf">1.25</span><span class="p">,</span><span class="mf">0.25</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="c">#labels</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
@@ -200,9 +199,7 @@
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 
-<p><img src="http://parneetk.github.io/images/2017-01-07-intro-to-matplotlib_files/2017-01-07-intro-to-matplotlib_6_0.png" alt="png" /></p>
-
-<p><img src="http://parneetk.github.io/images/2017-01-07-intro-to-matplotlib_files/2017-01-07-intro-to-matplotlib_6_1.png" alt="png" /></p>
+<p><img src="2017-01-07-intro-to-matplotlib_files/2017-01-07-intro-to-matplotlib_6_0.png" alt="png" /></p>
 
 <h2 id="subplot">Subplot</h2>
 
@@ -213,7 +210,7 @@
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">&quot;cos(x)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 
-<p><img src="http://parneetk.github.io/images/2017-01-07-intro-to-matplotlib_files/2017-01-07-intro-to-matplotlib_8_0.png" alt="png" /></p>
+<p><img src="2017-01-07-intro-to-matplotlib_files/2017-01-07-intro-to-matplotlib_8_0.png" alt="png" /></p>
 
 <h2 id="scatter-plot">Scatter Plot</h2>
 
@@ -226,16 +223,19 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&quot;Scatter Plot&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 
-<p><img src="http://parneetk.github.io/images/2017-01-07-intro-to-matplotlib_files/2017-01-07-intro-to-matplotlib_10_0.png" alt="png" /></p>
+<p><img src="2017-01-07-intro-to-matplotlib_files/2017-01-07-intro-to-matplotlib_10_0.png" alt="png" /></p>
 
 <h2 id="barplot">Barplot</h2>
 
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="n">size</span> <span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&quot;Bar Plot&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 
-<p><img src="http://parneetk.github.io/images/2017-01-07-intro-to-matplotlib_files/2017-01-07-intro-to-matplotlib_12_0.png" alt="png" /></p>
+<p><img src="2017-01-07-intro-to-matplotlib_files/2017-01-07-intro-to-matplotlib_12_0.png" alt="png" /></p>
 
 
         <hr />
