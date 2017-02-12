@@ -147,13 +147,43 @@
       <div id="content" class="page-content" itemprop="articleBody">
         <p>iPython Notebook for this tutorial is available <a href="https://github.com/parneetk/Neural-Networks-in-Keras">here</a>.<br /></p>
 
-<p>The examples in this notebook assume that you are familiar with the theory of the neural networks. To learn more about the neural networks, you can refer resources <a href="https://github.com/parneetk/Neural-Networks-in-Keras/blob/master/README.md">here</a>.</p>
+<p>The examples in this notebook assume that you are familiar with the theory of the neural networks. To learn more about the neural networks, you can refer the resources mentioned <a href="https://github.com/parneetk/Neural-Networks-in-Keras/blob/master/README.md">here</a>.</p>
+
+<p>In this notebook, we will learn to:</p>
+
+<ul>
+  <li>import MNIST dataset and visualize some example images</li>
+  <li>define deep neural network model with single as well as multiple hidden layers</li>
+  <li>train the model and plot the accuracy or loss at each epoch</li>
+  <li>study the effect of varying the learning rate, batch size and number of epochs</li>
+  <li>use SGD and Adam optimizers</li>
+  <li>save model weights every 10 epochs </li>
+  <li>resume training by loading a saved model</li>
+  <li>earlystop the training if there is negligiable improvement in the performance</li>
+</ul>
 
 <h2 id="import-modules">Import modules</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Use GPU for Theano, comment to use CPU instead of GPU</span>
+<span class="c"># Tensorflow uses GPU by default</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&quot;THEANO_FLAGS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;mode=FAST_RUN, device=gpu, floatX=float32&quot;</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># If using tensorflow, set image dimensions order</span>
+<span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">backend</span> <span class="k">as</span> <span class="n">K</span>
+<span class="k">if</span> <span class="n">K</span><span class="o">.</span><span class="n">backend</span><span class="p">()</span><span class="o">==</span><span class="s">&#39;tensorflow&#39;</span><span class="p">:</span>
+    <span class="n">K</span><span class="o">.</span><span class="n">set_image_dim_ordering</span><span class="p">(</span><span class="s">&quot;th&quot;</span><span class="p">)</span></code></pre></div>
+
+<pre><code>Using TensorFlow backend.
+</code></pre>
 
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">keras.layers.core</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Activation</span>
+<span class="kn">from</span> <span class="nn">keras.optimizers</span> <span class="kn">import</span> <span class="n">SGD</span>
+<span class="kn">from</span> <span class="nn">keras.utils</span> <span class="kn">import</span> <span class="n">np_utils</span>
 <span class="o">%</span> <span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">2017</span><span class="p">)</span></code></pre></div>
 
@@ -163,9 +193,18 @@
 <span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">),</span> <span class="p">(</span><span class="n">test_features</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
 <span class="n">_</span><span class="p">,</span> <span class="n">img_rows</span><span class="p">,</span> <span class="n">img_cols</span> <span class="o">=</span>  <span class="n">train_features</span><span class="o">.</span><span class="n">shape</span>
 <span class="n">num_classes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">train_labels</span><span class="p">))</span>
-<span class="n">num_input_nodes</span> <span class="o">=</span> <span class="n">img_rows</span><span class="o">*</span><span class="n">img_cols</span></code></pre></div>
+<span class="n">num_input_nodes</span> <span class="o">=</span> <span class="n">img_rows</span><span class="o">*</span><span class="n">img_cols</span>
+<span class="k">print</span> <span class="s">&quot;Number of training samples: </span><span class="si">%d</span><span class="s">&quot;</span><span class="o">%</span><span class="n">train_features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&quot;Number of test samples: </span><span class="si">%d</span><span class="s">&quot;</span><span class="o">%</span><span class="n">test_features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&quot;Image rows: </span><span class="si">%d</span><span class="s">&quot;</span><span class="o">%</span><span class="n">train_features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&quot;Image columns: </span><span class="si">%d</span><span class="s">&quot;</span><span class="o">%</span><span class="n">train_features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&quot;Number of classes: </span><span class="si">%d</span><span class="s">&quot;</span><span class="o">%</span><span class="n">num_classes</span></code></pre></div>
 
-<pre><code>Using Theano backend.
+<pre><code>Number of training samples: 60000
+Number of test samples: 10000
+Image rows: 28
+Image columns: 28
+Number of classes: 10
 </code></pre>
 
 <h2 id="show-examples-from-each-class">Show Examples from Each Class</h2>
@@ -178,39 +217,40 @@
     <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">features_idx</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s">&quot;gray&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
 
-<p><img src="http://parneetk.github.io/images/2017-01-21-neural-networks-in-keras_files/2017-01-21-neural-networks-in-keras_6_0.png" alt="png" /></p>
+<p><img src="http://parneetk.github.io/images/2017-01-21-neural-networks-in-keras_files/2017-01-21-neural-networks-in-keras_8_0.png" alt="png" /></p>
 
-<h2 id="prepare-dataset">Prepare Dataset</h2>
+<h2 id="pre-processing">Pre-processing</h2>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">keras.utils</span> <span class="kn">import</span> <span class="n">np_utils</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># reshape images to column vectors</span>
 <span class="n">train_features</span> <span class="o">=</span> <span class="n">train_features</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">train_features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">img_rows</span><span class="o">*</span><span class="n">img_cols</span><span class="p">)</span>
 <span class="n">test_features</span> <span class="o">=</span> <span class="n">test_features</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">test_features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">img_rows</span><span class="o">*</span><span class="n">img_cols</span><span class="p">)</span>
 <span class="c"># convert class labels to binary class labels</span>
 <span class="n">train_labels</span> <span class="o">=</span> <span class="n">np_utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">train_labels</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
 <span class="n">test_labels</span> <span class="o">=</span> <span class="n">np_utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">test_labels</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span></code></pre></div>
 
-<h2 id="import-keras-modules">Import Keras Modules</h2>
+<h2 id="define-a-neural-network-model-with-a-single-hidden-layer">Define a Neural Network Model with a Single Hidden Layer</h2>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
-<span class="kn">from</span> <span class="nn">keras.layers.core</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Activation</span>
-<span class="kn">from</span> <span class="nn">keras.optimizers</span> <span class="kn">import</span> <span class="n">SGD</span></code></pre></div>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">simple_nn</span><span class="p">():</span>
+    <span class="c"># initialize model</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+    <span class="c"># add an input layer and a hidden layer</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">input_dim</span> <span class="o">=</span> <span class="n">num_input_nodes</span><span class="p">))</span>
+    <span class="c"># add activation layer to add non-linearity</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;sigmoid&#39;</span><span class="p">))</span>
+    <span class="c"># to add ReLu instead of sigmoid: model.add(Activation(&#39;relu&#39;))</span>
+    <span class="c"># combine above 2 layers: model.add(Dense(100, input_dim=784),Activation(&#39;sigmoid&#39;))</span>
+    <span class="c"># add output layer</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">))</span>
+    <span class="c"># add softmax layer </span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;softmax&#39;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">model</span></code></pre></div>
 
-<h2 id="define-a-neural-network-model-with-a-single-hidden-layer">Define a Neural Network Model with a single hidden layer</h2>
-
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Initialize model</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="c"># Add layers</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">input_dim</span> <span class="o">=</span> <span class="n">num_input_nodes</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;sigmoid&#39;</span><span class="p">))</span>
-<span class="c"># To add ReLu instead of sigmoid: model.add(Activation(&#39;relu&#39;))</span>
-<span class="c"># combine above 2 layers: model.add(Dense(100, input_dim=784),Activation(&#39;sigmoid&#39;))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;softmax&#39;</span><span class="p">))</span>
-<span class="c"># define optimizer, loss function</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># define model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">simple_nn</span><span class="p">()</span>
+<span class="c"># define optimizer</span>
 <span class="n">sgd</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;mse&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Print model information</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;mse&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span>
+<span class="c"># print model information</span>
 <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span></code></pre></div>
 
 <pre><code>____________________________________________________________________________________________________
@@ -233,32 +273,33 @@ ________________________________________________________________________________
 <h2 id="train-the-model">Train the model</h2>
 
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> \
+                       <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="k">print</span> <span class="s">&quot;Model took </span><span class="si">%0.2f</span><span class="s"> seconds to train&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span></code></pre></div>
 
 <pre><code>Train on 48000 samples, validate on 12000 samples
 Epoch 1/10
-1s - loss: 0.0896 - acc: 0.2103 - val_loss: 0.0830 - val_acc: 0.3227
+1s - loss: 0.0866 - acc: 0.2679 - val_loss: 0.0783 - val_acc: 0.3748
 Epoch 2/10
-1s - loss: 0.0779 - acc: 0.3908 - val_loss: 0.0732 - val_acc: 0.4453
+1s - loss: 0.0726 - acc: 0.4483 - val_loss: 0.0665 - val_acc: 0.5164
 Epoch 3/10
-1s - loss: 0.0695 - acc: 0.4903 - val_loss: 0.0654 - val_acc: 0.5388
+1s - loss: 0.0629 - acc: 0.5445 - val_loss: 0.0584 - val_acc: 0.5817
 Epoch 4/10
-1s - loss: 0.0625 - acc: 0.5668 - val_loss: 0.0589 - val_acc: 0.6121
+1s - loss: 0.0561 - acc: 0.6055 - val_loss: 0.0523 - val_acc: 0.6432
 Epoch 5/10
-1s - loss: 0.0564 - acc: 0.6426 - val_loss: 0.0529 - val_acc: 0.6862
+1s - loss: 0.0506 - acc: 0.6636 - val_loss: 0.0473 - val_acc: 0.6973
 Epoch 6/10
-1s - loss: 0.0511 - acc: 0.6976 - val_loss: 0.0479 - val_acc: 0.7260
+1s - loss: 0.0459 - acc: 0.7166 - val_loss: 0.0426 - val_acc: 0.7530
 Epoch 7/10
-1s - loss: 0.0466 - acc: 0.7297 - val_loss: 0.0438 - val_acc: 0.7501
+1s - loss: 0.0417 - acc: 0.7669 - val_loss: 0.0389 - val_acc: 0.7914
 Epoch 8/10
-1s - loss: 0.0431 - acc: 0.7507 - val_loss: 0.0407 - val_acc: 0.7672
+1s - loss: 0.0383 - acc: 0.7967 - val_loss: 0.0356 - val_acc: 0.8141
 Epoch 9/10
-1s - loss: 0.0403 - acc: 0.7655 - val_loss: 0.0382 - val_acc: 0.7806
+1s - loss: 0.0355 - acc: 0.8121 - val_loss: 0.0331 - val_acc: 0.8273
 Epoch 10/10
-1s - loss: 0.0379 - acc: 0.7779 - val_loss: 0.0361 - val_acc: 0.7885
-Model took 16.11 seconds to train
+1s - loss: 0.0333 - acc: 0.8237 - val_loss: 0.0311 - val_acc: 0.8387
+Model took 12.27 seconds to train
 </code></pre>
 
 <h2 id="plot-accuracy-or-loss-as-a-function-of-number-of-epoch">Plot Accuracy or Loss as a Function of Number of Epoch</h2>
@@ -299,7 +340,7 @@ Model took 16.11 seconds to train
 
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span> <span class="s">&quot;Accuracy on test data is: </span><span class="si">%0.2f</span><span class="s">&quot;</span><span class="o">%</span><span class="n">accuracy</span><span class="p">(</span><span class="n">test_features</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span></code></pre></div>
 
-<pre><code>Accuracy on test data is: 78.87
+<pre><code>Accuracy on test data is: 83.54
 </code></pre>
 
 <h2 id="observation">Observation:</h2>
@@ -307,18 +348,16 @@ Model took 16.11 seconds to train
 
 <h2 id="vary-the-learning-rate">Vary the Learning Rate</h2>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Decrease the learning rate</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">input_dim</span> <span class="o">=</span> <span class="n">num_input_nodes</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;sigmoid&#39;</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;softmax&#39;</span><span class="p">))</span>
-<span class="c"># define optimizer, loss function</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># decrease the learning rate</span>
+<span class="c"># define model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">simple_nn</span><span class="p">()</span>
+<span class="c"># define optimizer</span>
 <span class="n">sgd</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;mse&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span>
-<span class="c"># Train the model</span>
+<span class="c"># train the model</span>
 <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> \
+                       <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="c"># plot model history</span>
 <span class="n">plot_model_history</span><span class="p">(</span><span class="n">model_info</span><span class="p">)</span>
@@ -328,22 +367,20 @@ Model took 16.11 seconds to train
 
 <p><img src="http://parneetk.github.io/images/2017-01-21-neural-networks-in-keras_files/2017-01-21-neural-networks-in-keras_24_0.png" alt="png" /></p>
 
-<pre><code>Model took 15.68 seconds to train
-Accuracy on test data is: 33.26
+<pre><code>Model took 11.39 seconds to train
+Accuracy on test data is: 27.29
 </code></pre>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Increase the learning rate</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">input_dim</span> <span class="o">=</span> <span class="n">num_input_nodes</span><span class="p">),)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;sigmoid&#39;</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;softmax&#39;</span><span class="p">))</span>
-<span class="c"># define optimizer, loss function</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># increase the learning rate</span>
+<span class="c"># define model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">simple_nn</span><span class="p">()</span>
+<span class="c"># define optimizer</span>
 <span class="n">sgd</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;mse&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span>
-<span class="c"># Train the model</span>
+<span class="c"># train the model</span>
 <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> \
+                       <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="c"># plot model history</span>
 <span class="n">plot_model_history</span><span class="p">(</span><span class="n">model_info</span><span class="p">)</span>
@@ -353,21 +390,23 @@ Accuracy on test data is: 33.26
 
 <p><img src="http://parneetk.github.io/images/2017-01-21-neural-networks-in-keras_files/2017-01-21-neural-networks-in-keras_25_0.png" alt="png" /></p>
 
-<pre><code>Model took 17.15 seconds to train
-Accuracy on test data is: 92.79
+<pre><code>Model took 11.47 seconds to train
+Accuracy on test data is: 92.43
 </code></pre>
 
 <h2 id="observation-1">Observation:</h2>
-<p>If the learning rate is decreased, less information is learned in each epoch and more epochs are required to learn a good model. If the learning rate is increased, more information is learned in each epoch and less epochs are required to learn a good model.</p>
+<p>If the learning rate is decreased, less information is learned in each epoch and more epochs are required to learn a good model. If the learning rate is increased, more information is learned in each epoch and less epochs are required to learn a good model. When using SGD, learning rate needs to be decided emperically for a given dataset. </p>
 
-<h2 id="vary-the-batch-size">Vary the Batch Size</h2>
+<h2 id="use-adam-optimizer-instead-of-sgd">Use Adam optimizer instead of SGD</h2>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># increase the batch size</span>
-<span class="n">sgd</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;mse&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Define model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">simple_nn</span><span class="p">()</span>
+<span class="c"># define optimizer, loss function</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;mse&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span>
 <span class="c"># Train the model</span>
 <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> \
+                       <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="c"># plot model history</span>
 <span class="n">plot_model_history</span><span class="p">(</span><span class="n">model_info</span><span class="p">)</span>
@@ -377,16 +416,24 @@ Accuracy on test data is: 92.79
 
 <p><img src="http://parneetk.github.io/images/2017-01-21-neural-networks-in-keras_files/2017-01-21-neural-networks-in-keras_28_0.png" alt="png" /></p>
 
-<pre><code>Model took 16.41 seconds to train
-Accuracy on test data is: 93.52
+<pre><code>Model took 13.49 seconds to train
+Accuracy on test data is: 92.23
 </code></pre>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># decrease the batch size</span>
-<span class="n">sgd</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;mse&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span>
-<span class="c"># Train the model</span>
+<h2 id="observation-2">Observation:</h2>
+<p>Using Adam optimizer, we don’t need to specify a learning rate. However, the training time increases. Refer <a href="http://sebastianruder.com/optimizing-gradient-descent/">this tutorial</a> for an interesting comparison of optimizers.</p>
+
+<h2 id="vary-the-batch-size">Vary the Batch Size</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># increase the batch size</span>
+<span class="c"># define model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">simple_nn</span><span class="p">()</span>
+<span class="c"># define optimizer</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;mse&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span>
+<span class="c"># train the model</span>
 <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> \
+                       <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="c"># plot model history</span>
 <span class="n">plot_model_history</span><span class="p">(</span><span class="n">model_info</span><span class="p">)</span>
@@ -394,23 +441,20 @@ Accuracy on test data is: 93.52
 <span class="c"># compute test accuracy</span>
 <span class="k">print</span> <span class="s">&quot;Accuracy on test data is: </span><span class="si">%0.2f</span><span class="s">&quot;</span><span class="o">%</span><span class="n">accuracy</span><span class="p">(</span><span class="n">test_features</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span></code></pre></div>
 
-<p><img src="http://parneetk.github.io/images/2017-01-21-neural-networks-in-keras_files/2017-01-21-neural-networks-in-keras_29_0.png" alt="png" /></p>
+<p><img src="http://parneetk.github.io/images/2017-01-21-neural-networks-in-keras_files/2017-01-21-neural-networks-in-keras_31_0.png" alt="png" /></p>
 
-<pre><code>Model took 19.95 seconds to train
-Accuracy on test data is: 94.43
+<pre><code>Model took 6.99 seconds to train
+Accuracy on test data is: 92.94
 </code></pre>
 
-<h2 id="observation-2">Observation:</h2>
-<p>Increasing the batch size decreases the training time but reduces the rate of learning.</p>
-
-<h2 id="change-the-cost-function-to-categorical-crossentropy">Change the Cost Function to Categorical Crossentropy</h2>
-
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Change the cost function</span>
-<span class="n">sgd</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span>
-<span class="c"># Train the model</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># decrease the batch size</span>
+<span class="c"># define model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">simple_nn</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;mse&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span>
+<span class="c"># train the model</span>
 <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> \
+                       <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="c"># plot model history</span>
 <span class="n">plot_model_history</span><span class="p">(</span><span class="n">model_info</span><span class="p">)</span>
@@ -420,20 +464,22 @@ Accuracy on test data is: 94.43
 
 <p><img src="http://parneetk.github.io/images/2017-01-21-neural-networks-in-keras_files/2017-01-21-neural-networks-in-keras_32_0.png" alt="png" /></p>
 
-<pre><code>Model took 15.51 seconds to train
-Accuracy on test data is: 94.97
+<pre><code>Model took 24.76 seconds to train
+Accuracy on test data is: 91.38
 </code></pre>
 
 <h2 id="observation-3">Observation:</h2>
-<p>Changing the cost function to categorical crossentropy significantly reduced the training time.</p>
+<p>Increasing the batch size decreases the training time but reduces the rate of learning.</p>
 
-<h2 id="increase-the-number-of-epochs">Increase the Number of Epochs</h2>
+<h2 id="change-the-cost-function-to-categorical-crossentropy">Change the Cost Function to Categorical Crossentropy</h2>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">sgd</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span>
-<span class="c"># Train the model</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># define model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">simple_nn</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span>
+<span class="c"># train the model</span>
 <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> \
+                       <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="c"># plot model history</span>
 <span class="n">plot_model_history</span><span class="p">(</span><span class="n">model_info</span><span class="p">)</span>
@@ -443,34 +489,22 @@ Accuracy on test data is: 94.97
 
 <p><img src="http://parneetk.github.io/images/2017-01-21-neural-networks-in-keras_files/2017-01-21-neural-networks-in-keras_35_0.png" alt="png" /></p>
 
-<pre><code>Model took 116.40 seconds to train
-Accuracy on test data is: 96.14
+<pre><code>Model took 7.76 seconds to train
+Accuracy on test data is: 93.27
 </code></pre>
 
 <h2 id="observation-4">Observation:</h2>
-<p>As the number of epochs increase, more information is learned. The training as well as validation accuracy increases and then reaches a saturation.</p>
+<p>Changing the cost function to categorical crossentropy reduced the training time. The decrease in training time is significant when using SGD for this experiment. </p>
 
-<h2 id="deep-neural-network">Deep Neural Network</h2>
+<h2 id="increase-the-number-of-epochs">Increase the Number of Epochs</h2>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Define a deep neural network</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="n">num_input_nodes</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;relu&#39;</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;relu&#39;</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;relu&#39;</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;relu&#39;</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;softmax&#39;</span><span class="p">))</span>
-
-<span class="c"># decrease the batch size</span>
-<span class="n">sgd</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span>
-<span class="c"># Train the model</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># define model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">simple_nn</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span>
+<span class="c"># train the model</span>
 <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> \
+                       <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="c"># plot model history</span>
 <span class="n">plot_model_history</span><span class="p">(</span><span class="n">model_info</span><span class="p">)</span>
@@ -480,12 +514,160 @@ Accuracy on test data is: 96.14
 
 <p><img src="http://parneetk.github.io/images/2017-01-21-neural-networks-in-keras_files/2017-01-21-neural-networks-in-keras_38_0.png" alt="png" /></p>
 
-<pre><code>Model took 306.96 seconds to train
-Accuracy on test data is: 95.12
+<pre><code>Model took 86.18 seconds to train
+Accuracy on test data is: 95.39
 </code></pre>
 
 <h2 id="observation-5">Observation:</h2>
+<p>As the number of epochs increase, more information is learned. The training as well as validation accuracy increases and then stabilizes.</p>
+
+<h2 id="deep-neural-network">Deep Neural Network</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">deep_nn</span><span class="p">():</span>
+    <span class="c"># Define a deep neural network</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="n">num_input_nodes</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;relu&#39;</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;relu&#39;</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;relu&#39;</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;relu&#39;</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">&#39;softmax&#39;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">model</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">model</span> <span class="o">=</span> <span class="n">deep_nn</span><span class="p">()</span>
+<span class="c"># Define optimizer</span>
+<span class="n">sgd</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;mse&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span>
+<span class="c"># Train the model</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> \
+                       <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="c"># plot model history</span>
+<span class="n">plot_model_history</span><span class="p">(</span><span class="n">model_info</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;Model took </span><span class="si">%0.2f</span><span class="s"> seconds to train&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+<span class="c"># compute test accuracy</span>
+<span class="k">print</span> <span class="s">&quot;Accuracy on test data is: </span><span class="si">%0.2f</span><span class="s">&quot;</span><span class="o">%</span><span class="n">accuracy</span><span class="p">(</span><span class="n">test_features</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span></code></pre></div>
+
+<p><img src="http://parneetk.github.io/images/2017-01-21-neural-networks-in-keras_files/2017-01-21-neural-networks-in-keras_42_0.png" alt="png" /></p>
+
+<pre><code>Model took 94.52 seconds to train
+Accuracy on test data is: 97.16
+</code></pre>
+
+<h2 id="observation-6">Observation:</h2>
 <p>By adding more hidden layers, training time as well as information learned in each epoch increases. It helps to improve the performance for complex tasks but may not help significantly for relatively simple datasets such as MNIST.</p>
+
+<h2 id="save-model-every-10th-epoch">Save model every 10th epoch</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">keras.callbacks</span> <span class="kn">import</span> <span class="n">ModelCheckpoint</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c"># define a deep neural network</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">deep_nn</span><span class="p">()</span>
+<span class="c"># define optimizer</span>
+<span class="n">sgd</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;mse&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span>
+<span class="c"># checkpoint</span>
+<span class="n">outputFolder</span> <span class="o">=</span> <span class="s">&#39;./output-mnist&#39;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">outputFolder</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">outputFolder</span><span class="p">)</span>
+<span class="n">filepath</span><span class="o">=</span><span class="n">outputFolder</span><span class="o">+</span><span class="s">&quot;/weights-{epoch:02d}-{val_acc:.2f}.hdf5&quot;</span>
+<span class="n">checkpoint</span> <span class="o">=</span> <span class="n">ModelCheckpoint</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="s">&#39;val_acc&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> \
+                             <span class="n">save_best_only</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">save_weights_only</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> \
+                             <span class="n">mode</span><span class="o">=</span><span class="s">&#39;auto&#39;</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">callbacks_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">checkpoint</span><span class="p">]</span>
+<span class="c"># train the model</span>
+<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> \
+                       <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks_list</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> \
+                       <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="c"># compute test accuracy</span>
+<span class="k">print</span> <span class="s">&quot;Accuracy on test data is: </span><span class="si">%0.2f</span><span class="s">&quot;</span><span class="o">%</span><span class="n">accuracy</span><span class="p">(</span><span class="n">test_features</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span></code></pre></div>
+
+<pre><code>Epoch 00009: saving model to ./output-mnist/weights-09-0.92.hdf5
+Epoch 00019: saving model to ./output-mnist/weights-19-0.96.hdf5
+Epoch 00029: saving model to ./output-mnist/weights-29-0.95.hdf5
+Epoch 00039: saving model to ./output-mnist/weights-39-0.96.hdf5
+Epoch 00049: saving model to ./output-mnist/weights-49-0.97.hdf5
+Epoch 00059: saving model to ./output-mnist/weights-59-0.97.hdf5
+Epoch 00069: saving model to ./output-mnist/weights-69-0.97.hdf5
+Epoch 00079: saving model to ./output-mnist/weights-79-0.97.hdf5
+Accuracy on test data is: 97.45
+</code></pre>
+
+<h2 id="resume-training-by-loading-a-saved-model">Resume training by loading a saved model</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># define model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">deep_nn</span><span class="p">()</span>
+<span class="c"># load weights</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">glob</span>
+<span class="n">epoch_num</span> <span class="o">=</span> <span class="mi">79</span>
+<span class="n">outputFolder</span> <span class="o">=</span> <span class="s">&#39;./output-mnist&#39;</span>
+<span class="n">file_ini</span> <span class="o">=</span> <span class="n">outputFolder</span><span class="o">+</span><span class="s">&#39;/weights-&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">epoch_num</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;*&#39;</span>
+<span class="n">filename</span> <span class="o">=</span>  <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">file_ini</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">filename</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">filename</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s"> does not exist&quot;</span><span class="o">%</span><span class="n">filename</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c"># define optimizer</span>
+<span class="n">sgd</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;mse&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span>
+<span class="c"># checkpoint</span>
+<span class="n">outputFolder</span> <span class="o">=</span> <span class="s">&#39;./output-mnist&#39;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">outputFolder</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">outputFolder</span><span class="p">)</span>
+<span class="n">filepath</span><span class="o">=</span><span class="n">outputFolder</span><span class="o">+</span><span class="s">&quot;/weights-{epoch:02d}-{val_acc:.2f}.hdf5&quot;</span>
+<span class="n">checkpoint</span> <span class="o">=</span> <span class="n">ModelCheckpoint</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="s">&#39;val_acc&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> \
+                             <span class="n">save_best_only</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">save_weights_only</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>\
+                             <span class="n">mode</span><span class="o">=</span><span class="s">&#39;auto&#39;</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">callbacks_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">checkpoint</span><span class="p">]</span>
+<span class="c"># train the model</span>
+<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> \
+                       <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks_list</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> \
+                       <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">initial_epoch</span> <span class="o">=</span> <span class="n">epoch_num</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="c"># compute test accuracy</span>
+<span class="k">print</span> <span class="s">&quot;Accuracy on test data is: </span><span class="si">%0.2f</span><span class="s">&quot;</span><span class="o">%</span><span class="n">accuracy</span><span class="p">(</span><span class="n">test_features</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span></code></pre></div>
+
+<pre><code>Epoch 00089: saving model to ./output-mnist/weights-89-0.97.hdf5
+Epoch 00099: saving model to ./output-mnist/weights-99-0.97.hdf5
+Accuracy on test data is: 97.32
+</code></pre>
+
+<h2 id="early-stopping">Early Stopping</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">keras.callbacks</span> <span class="kn">import</span> <span class="n">EarlyStopping</span>
+<span class="c">#define model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">deep_nn</span><span class="p">()</span>
+<span class="c"># define optimizer</span>
+<span class="n">sgd</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">&#39;mse&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;accuracy&#39;</span><span class="p">])</span>
+<span class="c"># define early stopping callback</span>
+<span class="n">earlystop</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s">&#39;val_acc&#39;</span><span class="p">,</span> <span class="n">min_delta</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> \
+                          <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">callbacks_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">earlystop</span><span class="p">]</span>
+<span class="c"># train the model</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">model_info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> \
+                       <span class="n">nb_epoch</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks_list</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> \
+                       <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="c"># plot model history</span>
+<span class="n">plot_model_history</span><span class="p">(</span><span class="n">model_info</span><span class="p">)</span>
+<span class="c"># compute test accuracy</span>
+<span class="k">print</span> <span class="s">&quot;Accuracy on test data is: </span><span class="si">%0.2f</span><span class="s">&quot;</span><span class="o">%</span><span class="n">accuracy</span><span class="p">(</span><span class="n">test_features</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span></code></pre></div>
+
+<pre><code>Epoch 00054: early stopping
+</code></pre>
+
+<p><img src="http://parneetk.github.io/images/2017-01-21-neural-networks-in-keras_files/2017-01-21-neural-networks-in-keras_49_1.png" alt="png" /></p>
+
+<pre><code>Accuracy on test data is: 96.19
+</code></pre>
+
 
         <hr />
         
@@ -514,6 +696,8 @@ Accuracy on test data is: 95.12
     <div class="sidebar">
 		<h3>Recent Posts</h3>
 		<ul>
+			
+				<li><a href="/blog/cnn-cifar10/">Convolutional Neural Networks (CNN) for CIFAR-10 Dataset</a></dd>
 			
 				<li><a href="/blog/cnn-mnist/">Convolutional Neural Networks (CNN) for MNIST Dataset</a></dd>
 			
@@ -565,6 +749,12 @@ Accuracy on test data is: 95.12
   <div class="tiles">
   
     <article class="tile" itemscope itemtype="http://schema.org/Article">
+	<h2 class="post-title" itemprop="name"><a href="http://parneetk.github.io/blog/cnn-cifar10/">Convolutional Neural Networks (CNN) for CIFAR-10 Dataset</a></h2>
+  <p class="entry-date date published"><time datetime="2017-01-23" itemprop="datePublished">January 23, 2017</time></p>
+	<p class="post-excerpt" itemprop="description">More examples to implement CNN in Keras</p>
+</article><!-- /.tile -->
+  
+    <article class="tile" itemscope itemtype="http://schema.org/Article">
 	<h2 class="post-title" itemprop="name"><a href="http://parneetk.github.io/blog/cnn-mnist/">Convolutional Neural Networks (CNN) for MNIST Dataset</a></h2>
   <p class="entry-date date published"><time datetime="2017-01-22" itemprop="datePublished">January 22, 2017</time></p>
 	<p class="post-excerpt" itemprop="description">Examples to implement CNN in Keras</p>
@@ -580,12 +770,6 @@ Accuracy on test data is: 95.12
 	<h2 class="post-title" itemprop="name"><a href="http://parneetk.github.io/blog/intro-to-numpy/">Intro to NumPy</a></h2>
   <p class="entry-date date published"><time datetime="2017-01-06" itemprop="datePublished">January 06, 2017</time></p>
 	<p class="post-excerpt" itemprop="description">Learn about array and matrix manipulation in Python</p>
-</article><!-- /.tile -->
-  
-    <article class="tile" itemscope itemtype="http://schema.org/Article">
-	<h2 class="post-title" itemprop="name"><a href="http://parneetk.github.io/blog/python_quickstart/">Python Quickstart </a></h2>
-  <p class="entry-date date published"><time datetime="2017-01-05" itemprop="datePublished">January 05, 2017</time></p>
-	<p class="post-excerpt" itemprop="description">Introduction to Python Basics</p>
 </article><!-- /.tile -->
   
   </div>

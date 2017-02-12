@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://parneetk.github.io/blog/cnn-cifar10/</loc>
+    <lastmod>2017-01-23T17:01:33-05:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>http://parneetk.github.io/blog/cnn-mnist/</loc>
     <lastmod>2017-01-22T17:01:33-05:00</lastmod>
     <priority>0.8</priority>
@@ -77,85 +82,85 @@
   </url>
   <url>
     <loc>http://parneetk.github.io/contact-me/</loc>
-    <lastmod>2017-01-26T09:48:00-05:00</lastmod>
+    <lastmod>2017-02-11T23:46:43-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/blog/</loc>
-    <lastmod>2017-01-26T09:48:00-05:00</lastmod>
+    <lastmod>2017-02-11T23:46:43-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/cv/</loc>
-    <lastmod>2017-01-26T09:48:00-05:00</lastmod>
+    <lastmod>2017-02-11T23:46:43-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/about/</loc>
-    <lastmod>2017-01-26T09:48:00-05:00</lastmod>
+    <lastmod>2017-02-11T23:46:43-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/</loc>
-    <lastmod>2017-01-26T09:48:00-05:00</lastmod>
+    <lastmod>2017-02-11T23:46:43-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/projects/</loc>
-    <lastmod>2017-01-26T09:48:00-05:00</lastmod>
+    <lastmod>2017-02-11T23:46:43-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/research/</loc>
-    <lastmod>2017-01-26T09:48:00-05:00</lastmod>
+    <lastmod>2017-02-11T23:46:43-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/tag/</loc>
-    <lastmod>2017-01-26T09:48:00-05:00</lastmod>
+    <lastmod>2017-02-11T23:46:43-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/tag/projects/</loc>
-    <lastmod>2017-01-26T09:48:00-05:00</lastmod>
+    <lastmod>2017-02-11T23:46:43-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/tag/research/</loc>
-    <lastmod>2017-01-26T09:48:00-05:00</lastmod>
+    <lastmod>2017-02-11T23:46:43-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/tag/women-in-tech/</loc>
-    <lastmod>2017-01-26T09:48:00-05:00</lastmod>
+    <lastmod>2017-02-11T23:46:43-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/tag/python-for-cv/</loc>
-    <lastmod>2017-01-26T09:48:00-05:00</lastmod>
+    <lastmod>2017-02-11T23:46:43-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/tag/keras/</loc>
-    <lastmod>2017-01-26T09:48:00-05:00</lastmod>
+    <lastmod>2017-02-11T23:46:43-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://parneetk.github.io/tag/deep-learning/</loc>
-    <lastmod>2017-01-26T09:48:00-05:00</lastmod>
+    <lastmod>2017-02-11T23:46:43-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
