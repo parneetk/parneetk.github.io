@@ -11,7 +11,7 @@
 <subtitle>Personal website of Parneet Kaur.</subtitle>
 <link href="http://parneetk.github.io/atom.xml" rel="self"/>
 <link href="http://parneetk.github.io/" rel="alternate" type="text/html"/>
-<updated>2017-02-13T13:45:06-05:00</updated>
+<updated>2017-02-16T14:35:33-05:00</updated>
 <id>http://parneetk.github.io/</id>
 <author>
   <name>Parneet Kaur</name>
@@ -207,7 +207,7 @@ Confidance: 0.999984
     
     &lt;p&gt;iPython Notebook for this tutorial is available &lt;a href=&quot;https://github.com/parneetk/Neural-Networks-in-Keras&quot;&gt;here&lt;/a&gt;.&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;The examples in this notebook assume that you are familiar with the theory of the neural networks. To learn more about the neural networks, you can refer resources in the readme file.&lt;/p&gt;
+&lt;p&gt;The examples in this notebook assume that you are familiar with the theory of the neural networks. To learn more about the neural networks, you can refer the resources mentioned &lt;a href=&quot;https://github.com/parneetk/Neural-Networks-in-Keras/blob/master/README.md&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;In this notebook, we will learn to:&lt;/p&gt;
 
