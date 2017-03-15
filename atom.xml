@@ -11,7 +11,7 @@
 <subtitle>Personal website of Parneet Kaur.</subtitle>
 <link href="http://parneetk.github.io/atom.xml" rel="self"/>
 <link href="http://parneetk.github.io/" rel="alternate" type="text/html"/>
-<updated>2017-02-18T22:01:39-05:00</updated>
+<updated>2017-03-15T11:44:47-04:00</updated>
 <id>http://parneetk.github.io/</id>
 <author>
   <name>Parneet Kaur</name>
@@ -19,6 +19,54 @@
   
 </author>
 
+
+<entry>
+  <title>App Inventor Competition at Rutgers University</title>
+  <link href="http://parneetk.github.io/blog/app-inventor/"/>
+  <updated>2017-02-04T17:01:33-05:00</updated>
+  <id>http://parneetk.github.io/blog/app-inventor</id>
+  <author>
+    <name>Parneet Kaur</name>
+    <uri>http://parneetk.github.io/</uri>
+    
+  </author>
+  <content type="html">
+    
+    &lt;p&gt;As the president of the Novice-to-Expert (N2E) Coding Club, I organized MIT App Inventor workshops on January 14-15, 2017 followed by a competition on February 4, 2017. These events were sponsored by a Google outreach grant.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://appinventor.mit.edu/explore/&quot;&gt;MIT App Inventor&lt;/a&gt; is a web application for developing apps for android devices. The simple drag and drop operations make it fun to learn basics of programming. I like it as one of the first learning tool for introduction to programming because it focuses on developing logical reasoning and critical thinking rather than the the syntax. Kids love playing games on mobile devices. Why not make apps instead of just playing them and learn a powerful skill while having fun? &lt;/p&gt;
+
+&lt;p&gt;The workshops took place in ECE Computer Lab and were led by me Umama Ahmed (sophomore, ECE). Hsiu-fen Lin, an apartment assistant with Rutgers Residence Life, coordinated the event. They were attended by 15 students (ages 9-14) and their parents who learned basics of programming and developed three fun apps along with the instructors. The students were given 3 weeks to develop their own apps, which they showcased in a competition held on February 4, 2017. Besides the instructors, Parul Pandey (graduate student, ECE) was invited as an additional judge to select the winners. All the students impressed the judges with their apps and they enjoyed presenting their own apps to friends and family.&lt;/p&gt;
+
+&lt;p&gt;Three students with most creative apps were selected as winners. The three winners are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;First Place: Dima-Al Quzwini (4th grade), App: Learning for Kids&lt;/li&gt;
+  &lt;li&gt;Second Place:Younis R. Mazin (7th grade), App: Shoot the Bird&lt;/li&gt;
+  &lt;li&gt;Third Place: Namisha Shrvastava (9th grade), App: General Knowledge Quiz&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Congratulations to the winners! &lt;/p&gt;
+
+&lt;figure class=&quot;half&quot;&gt;
+	&lt;img src=&quot;http://parneetk.github.io/images/2017-02-04-app-inventor_files/app-inventor-1.jpg&quot; /&gt;
+	&lt;img src=&quot;http://parneetk.github.io/images/2017-02-04-app-inventor_files/app-inventor-2.jpg&quot; /&gt;
+	&lt;figcaption&gt;[Left] Participants for the App Inventor Workshops. [Right] Winners for the App Inventor Competition(left to right): Namisha Shrvastava, Dima-Al Quzwini and Younis R. Mazin&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;If you would like to learn more about MIT App Inventor, here are a few resources:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://appinventor.mit.edu/explore/get-started.html&quot;&gt;Getting Started&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://appinventor.mit.edu/explore/ai2/beginner-videos.html&quot;&gt;Beginner Tutorials&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://appinventor.mit.edu/explore/ai2/tutorials.html&quot;&gt;More Tutorials&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.appinventor.org/book2&quot;&gt;Free ebook&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.appinventor.org/&quot;&gt;App Inventor Video Tutorials&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/blog/app-inventor/&quot; rel=&quot;nofollow&quot;&gt;App Inventor Competition at Rutgers University&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
+  </content>
+</entry>
 
 <entry>
   <title>Transfer Learning using CNNs</title>
