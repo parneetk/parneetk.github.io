@@ -11,7 +11,7 @@
 <subtitle>Personal website of Parneet Kaur.</subtitle>
 <link href="http://parneetk.github.io/atom.xml" rel="self"/>
 <link href="http://parneetk.github.io/" rel="alternate" type="text/html"/>
-<updated>2017-03-15T21:33:58-04:00</updated>
+<updated>2017-06-19T10:49:22-04:00</updated>
 <id>http://parneetk.github.io/</id>
 <author>
   <name>Parneet Kaur</name>
@@ -19,6 +19,26 @@
   
 </author>
 
+
+<entry>
+  <title>Photo-realistic Facial Texture Transfer</title>
+  <link href="http://parneetk.github.io/research/texture-transfer/"/>
+  <updated>2017-06-14T00:00:00-04:00</updated>
+  <id>http://parneetk.github.io/research/texture-transfer</id>
+  <author>
+    <name>Parneet Kaur</name>
+    <uri>http://parneetk.github.io/</uri>
+    
+  </author>
+  <content type="html">
+    &lt;img src=&quot;http://parneetk.github.io/images/texture-transfer-feature.png&quot; alt=&quot;Photo-realistic Facial Texture Transfer feature&quot;&gt;&lt;br/&gt;
+    &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;Style transfer methods have achieved significant success in recent years with the use of convolutional neural networks. However, many of these methods concentrate on artistic style transfer with few constraints on the output image appearance. We address the challenging problem of transferring face texture from a style face image to a content face image in a photorealistic manner without changing the identity of the original content image. Our framework for face texture transfer (FaceTex) augments the prior work of MRF-CNN with a novel facial semantic regularization that incorporates a face prior regularization smoothly suppressing the changes around facial meso-structures (e.g eyes, nose and mouth) and a facial structure loss function which implicitly preserves the facial structure so that face texture can be transferred without changing the original identity. We demonstrate results on face images and compare our approach with recent state-of-the-art methods. Our results demonstrate superior texture transfer because of the ability to maintain the identity of the original face image.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/research/texture-transfer/&quot; rel=&quot;nofollow&quot;&gt;Photo-realistic Facial Texture Transfer&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
+  </content>
+</entry>
 
 <entry>
   <title>App Inventor Competition at Rutgers University</title>

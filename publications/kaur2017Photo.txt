@@ -1,0 +1,6 @@
+@article{kaur2017Photo,
+	title={Photo-realistic Facial Texture Transfer},
+	author={Kaur, Parneet and Zhang, Hang and Dana, Kristin},
+	journal={arXiv preprint arXiv:1706.04306},
+	year={2017}
+}
