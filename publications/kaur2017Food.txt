@@ -1,0 +1,6 @@
+@article{kaur2017combining,
+  title={Combining Weakly and Webly Supervised Learning for Classifying Food Images},
+  author={Kaur, Parneet and Sikka, Karan and Divakaran, Ajay},
+  journal={arXiv preprint arXiv:1712.08730},
+  year={2017}
+}
