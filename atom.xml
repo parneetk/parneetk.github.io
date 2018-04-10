@@ -11,7 +11,7 @@
 <subtitle>Personal website of Parneet Kaur.</subtitle>
 <link href="http://parneetk.github.io/atom.xml" rel="self"/>
 <link href="http://parneetk.github.io/" rel="alternate" type="text/html"/>
-<updated>2018-04-10T14:10:48-04:00</updated>
+<updated>2018-04-10T14:13:57-04:00</updated>
 <id>http://parneetk.github.io/</id>
 <author>
   <name>Parneet Kaur</name>
@@ -2417,7 +2417,7 @@ foo@bar:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;conda install theano&lt
 &lt;p&gt;In case of installation errors, googling the error always helped me - mostly directing me to stack overflow.&lt;/p&gt;
 
 &lt;h3 id=&quot;development-environment&quot;&gt;Development environment:&lt;/h3&gt;
-&lt;p&gt;On MAC or Ubuntu, I use:&lt;/p&gt;
+&lt;p&gt;On Ubuntu, I use:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;vim to edit my python files&lt;/li&gt;
