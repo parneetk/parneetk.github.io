@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Intro to scikit-learn • Parneet Kaur</title>
+    <meta name="description" content="Machine learning library in Python">
+    	
+		<!-- Twitter Cards -->
+		<meta name="twitter:title" content="Intro to scikit-learn">
+		<meta name="twitter:description" content="Machine learning library in Python">
+		<meta name="twitter:site" content="@_parneetkaur">
+		<meta name="twitter:creator" content="@_parneetkaur">
+		
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:image" content="http://parneetk.github.io/images/site-logo.png# 120x120 px default image used for Twitter summary card">
+		
+	
+		<!-- Open Graph -->
+		<meta property="og:locale" content="en_US">
+		<meta property="og:type" content="article">
+		<meta property="og:title" content="Intro to scikit-learn">
+		<meta property="og:description" content="Machine learning library in Python">
+		<meta property="og:url" content="http://parneetk.github.io/blog/intro-to-sklearn/">
+		<meta property="og:site_name" content="Parneet Kaur">
+    <link rel="canonical" href="http://parneetk.github.io/blog/intro-to-sklearn/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="http://parneetk.github.io/sitemap.xml">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cleartype" content="on">
+
+    <!-- Webmaster Tools verifications -->
+    
+    
+    
+    
+
+    
+
+    <link rel="stylesheet" href="/assets/global-3c4fd48ce335e959c9281b521601047b.css">
+    <!-- HTML5 Shiv and Media Query Support for IE -->
+    <!--[if lt IE 9]>
+      <script src="/assets/vendor/html5shiv-885c726bf070ed12d4f7169c3cef6cac.js"></script>
+      <script src="/assets/vendor/respond-436602cb1583ac6782a71c2d567a5b2c.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body id="js-body">
+    <!--[if lt IE 9]><div class="upgrade notice-danger"><strong>Your browser is quite old!</strong> Why not <a href="http://whatbrowser.org/">upgrade to a newer one</a> to better enjoy this site?</div><![endif]-->
+    <header id="masthead">
+  <div class="masthead-contents">
+    <div class="logo-wrap">
+      <a href="/" class="site-title">Parneet Kaur</a>
+    </div>
+    <nav role="navigation" class="menu top-menu">
+      <ul class="menu-item">
+	
+    <li><a href="/">Home</a></li>
+  
+    <li><a href="/research/">Research</a></li>
+  
+    <li><a href="/blog/">Blog</a></li>
+  
+    <li><a href="/outreach/">Outreach</a></li>
+  
+    <li><a href="/contact-me/">Contact Me</a></li>
+  
+</ul>
+    </nav>
+  </div><!-- /.masthead-contents -->
+</header><!-- /.masthead -->
+    <nav role="navigation" id="js-menu" class="sliding-menu-content">
+  <h5>Parneet Kaur <span>Table of Contents</span></h5>
+  <ul class="menu-item">
+    <li>
+      <a href="/">
+        
+        <div class="title">Home</div>
+        
+      </a>
+    </li><li>
+      <a href="/research/">
+        
+        <div class="title">Research</div>
+        
+      </a>
+    </li><li>
+      <a href="/blog/">
+        
+        <div class="title">Blog</div>
+        
+      </a>
+    </li><li>
+      <a href="/outreach/">
+        
+        <div class="title">Outreach</div>
+        
+      </a>
+    </li><li>
+      <a href="/contact-me/">
+        
+        <div class="title">Contact Me</div>
+        
+      </a>
+    </li>
+  </ul>
+</nav>
+<button type="button" id="js-menu-trigger" class="sliding-menu-button lines-button x2" role="button" aria-label="Toggle Navigation">
+  <span class="lines"></span>
+</button>
+
+<div id="js-menu-screen" class="menu-screen"></div>
+
+    <div id="page-wrapper">
+      <div id="main" role="main">         
+  <article class="wrap" itemscope itemtype="http://schema.org/Article">
+    <div class="page-header">
+      
+      <div class="page-title">
+        
+  <nav class="breadcrumbs">
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://parneetk.github.io" itemprop="url"><span itemprop="title">Home</span></a> › 
+    </span>
+    <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+      <a href="http://parneetk.github.io/blog/" itemprop="url">
+        <span itemprop="title">
+          
+          
+            Blog
+              
+          
+        </span>
+      </a> › 
+    </span>
+  </nav><!-- /.breadcrumbs -->
+
+
+
+
+        <h1><span>Intro to scikit-learn</span></h1>
+      </div><!-- /.page-title -->
+    </div><!-- /.page-header -->
+    <div class="inner-wrap">
+      <div id="content" class="page-content" itemprop="articleBody">
+        <p>Jupyter Notebook for this tutorial is available <a href="https://github.com/parneetk/python-for-computer-vision/">here</a>.<br /></p>
+
+<h1 id="intro-to-scikit-learn">Intro to scikit-learn</h1>
+<p>Scikit-learn is machine learning library for Python. It includes implementation of several clustering, classification and regression algorithms. <a href="http://scikit-learn.org/stable/documentation.html">Documentation of scikit-learn</a> gives an overview of all the algorithms available in this library. This notebook assumes that you are familiar with basics of machine learning.</p>
+
+<p>In this tutorial, we learn to:</p>
+
+<ul>
+  <li>load MNIST dataset and visualize some examples</li>
+  <li>perform unsupervised learning using k-means clustering and spectral clustering</li>
+  <li>perform supervised learning using classifiers</li>
+  <li>compute classification metrics  </li>
+  <li>display confusion matrix</li>
+</ul>
+
+<h2 id="import-necessary-modules">Import necessary modules</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span></code></pre></div>
+
+<h2 id="load-the-mnist-datasets">Load the MNIST Datasets</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">dataset</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&quot;Number of Samples: </span><span class="si">%d</span><span class="s">&quot;</span> <span class="o">%</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">target</span><span class="p">)</span></code></pre></div>
+
+<pre><code>Number of Samples: 1797
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span> <span class="s">&quot;Output Categories: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">dataset</span><span class="o">.</span><span class="n">target_names</span></code></pre></div>
+
+<pre><code>Output Categories: [0 1 2 3 4 5 6 7 8 9]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">features</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">data</span>
+<span class="k">print</span> <span class="s">&quot;Feature Vectors: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">features</span></code></pre></div>
+
+<pre><code>Feature Vectors: [[  0.   0.   5. ...,   0.   0.   0.]
+ [  0.   0.   0. ...,  10.   0.   0.]
+ [  0.   0.   0. ...,  16.   9.   0.]
+ ..., 
+ [  0.   0.   1. ...,   6.   0.   0.]
+ [  0.   0.   2. ...,  12.   0.   0.]
+ [  0.   0.  10. ...,  12.   1.   0.]]
+</code></pre>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">labels</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span>
+<span class="k">print</span> <span class="s">&quot;Labels: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">labels</span></code></pre></div>
+
+<pre><code>Labels: [0 1 2 ..., 8 9 8]
+</code></pre>
+
+<h2 id="divide-the-dataset-into-training-and-test-sets">Divide the dataset into training and test sets</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">trainIdx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">0.8</span>
+<span class="n">features_train</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="n">trainIdx</span><span class="p">]</span>
+<span class="n">labels_train</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">trainIdx</span><span class="p">]</span>
+<span class="n">features_test</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="o">~</span><span class="n">trainIdx</span><span class="p">]</span>
+<span class="n">labels_test</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="o">~</span><span class="n">trainIdx</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&quot;Number of training samples: &quot;</span><span class="p">,</span><span class="n">features_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&quot;Number of test samples: &quot;</span><span class="p">,</span><span class="n">features_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&quot;Feature vector dimensionality: &quot;</span><span class="p">,</span><span class="n">features_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></code></pre></div>
+
+<pre><code>Number of training samples:  1442
+Number of test samples:  355
+Feature vector dimensionality:  64
+</code></pre>
+
+<h2 id="k-means-clustering">k-means Clustering</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># import modules</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="n">num_clusters</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">mdl</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">num_clusters</span><span class="p">)</span>
+<span class="n">clusters</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_clusters</span><span class="p">):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">c</span><span class="p">,</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mdl</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">binary</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s">&#39;Cluster centers&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
+
+<p><img src="http://parneetk.github.io/images/2017-01-08-intro-to-sklearn_files/2017-01-08-intro-to-sklearn_11_0.png" alt="png" /></p>
+
+<h2 id="spectral-clustering">Spectral Clustering</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">SpectralClustering</span>
+<span class="n">num_clusters</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">mdl</span> <span class="o">=</span> <span class="n">SpectralClustering</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">num_clusters</span><span class="p">,</span>
+                        <span class="n">eigen_solver</span><span class="o">=</span><span class="s">&#39;arpack&#39;</span><span class="p">,</span>
+                      <span class="n">affinity</span><span class="o">=</span><span class="s">&quot;nearest_neighbors&quot;</span><span class="p">)</span>
+<span class="n">clusters</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_clusters</span><span class="p">):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">c</span><span class="p">,</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[])</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="n">clusters</span><span class="o">==</span><span class="n">c</span><span class="p">,:]</span>
+    <span class="n">cluster_center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cluster_center</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">binary</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
+
+<p><img src="http://parneetk.github.io/images/2017-01-08-intro-to-sklearn_files/2017-01-08-intro-to-sklearn_13_0.png" alt="png" /></p>
+
+<h2 id="k-nearest-neighbor-knn-classification">k-Nearest Neighbor (kNN) Classification</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># import modules</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="c"># initiate the classifier</span>
+<span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="c"># fit the classifier model with training data</span>
+<span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features_train</span><span class="p">,</span> <span class="n">labels_train</span><span class="p">)</span>
+<span class="c"># predict the output labels of test data</span>
+<span class="n">labels_pred</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features_test</span><span class="p">)</span>
+<span class="c"># print classification metrics </span>
+<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">labels_test</span><span class="p">,</span> <span class="n">labels_pred</span><span class="p">)</span>
+<span class="c"># print confusion matrix</span>
+<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">labels_test</span><span class="p">,</span> <span class="n">labels_pred</span><span class="p">)</span></code></pre></div>
+
+<pre><code>             precision    recall  f1-score   support
+
+          0       1.00      1.00      1.00        37
+          1       0.93      1.00      0.96        40
+          2       1.00      1.00      1.00        32
+          3       0.97      1.00      0.99        35
+          4       0.97      1.00      0.99        36
+          5       1.00      0.97      0.99        37
+          6       1.00      1.00      1.00        34
+          7       1.00      1.00      1.00        37
+          8       1.00      0.93      0.96        40
+          9       0.92      0.89      0.91        27
+
+avg / total       0.98      0.98      0.98       355
+
+[[37  0  0  0  0  0  0  0  0  0]
+ [ 0 40  0  0  0  0  0  0  0  0]
+ [ 0  0 32  0  0  0  0  0  0  0]
+ [ 0  0  0 35  0  0  0  0  0  0]
+ [ 0  0  0  0 36  0  0  0  0  0]
+ [ 0  0  0  0  0 36  0  0  0  1]
+ [ 0  0  0  0  0  0 34  0  0  0]
+ [ 0  0  0  0  0  0  0 37  0  0]
+ [ 0  2  0  0  0  0  0  0 37  1]
+ [ 0  1  0  1  1  0  0  0  0 24]]
+</code></pre>
+
+<h2 id="support-vector-machines-svm-classification">Support Vector Machines (SVM) Classification</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span> <span class="c"># &quot;Support Vector Classifier&quot;</span>
+<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">svm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features_train</span><span class="p">,</span> <span class="n">labels_train</span><span class="p">)</span>
+<span class="c"># predict the output labels of test data</span>
+<span class="n">labels_pred</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features_test</span><span class="p">)</span>
+<span class="c"># print classification metrics </span>
+<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">labels_test</span><span class="p">,</span> <span class="n">labels_pred</span><span class="p">)</span>
+<span class="c"># print confusion matrix</span>
+<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">labels_test</span><span class="p">,</span> <span class="n">labels_pred</span><span class="p">)</span></code></pre></div>
+
+<pre><code>             precision    recall  f1-score   support
+
+          0       1.00      1.00      1.00        37
+          1       0.89      1.00      0.94        40
+          2       1.00      1.00      1.00        32
+          3       0.97      1.00      0.99        35
+          4       1.00      1.00      1.00        36
+          5       1.00      0.97      0.99        37
+          6       1.00      1.00      1.00        34
+          7       1.00      0.97      0.99        37
+          8       0.95      0.88      0.91        40
+          9       0.96      0.93      0.94        27
+
+avg / total       0.98      0.97      0.97       355
+
+[[37  0  0  0  0  0  0  0  0  0]
+ [ 0 40  0  0  0  0  0  0  0  0]
+ [ 0  0 32  0  0  0  0  0  0  0]
+ [ 0  0  0 35  0  0  0  0  0  0]
+ [ 0  0  0  0 36  0  0  0  0  0]
+ [ 0  0  0  0  0 36  0  0  0  1]
+ [ 0  0  0  0  0  0 34  0  0  0]
+ [ 0  0  0  1  0  0  0 36  0  0]
+ [ 0  5  0  0  0  0  0  0 35  0]
+ [ 0  0  0  0  0  0  0  0  2 25]]
+</code></pre>
+
+<h2 id="logistic-regression-classification">Logistic Regression Classification</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="n">mdl</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">mdl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features_train</span><span class="p">,</span> <span class="n">labels_train</span><span class="p">)</span>
+<span class="c"># predict the output labels of test data</span>
+<span class="n">labels_pred</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features_test</span><span class="p">)</span>
+<span class="c"># print classification metrics </span>
+<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">labels_test</span><span class="p">,</span> <span class="n">labels_pred</span><span class="p">)</span>
+<span class="c"># print confusion matrix</span>
+<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">labels_test</span><span class="p">,</span> <span class="n">labels_pred</span><span class="p">)</span></code></pre></div>
+
+<pre><code>             precision    recall  f1-score   support
+
+          0       1.00      0.97      0.99        37
+          1       0.91      0.97      0.94        40
+          2       1.00      0.94      0.97        32
+          3       0.92      0.97      0.94        35
+          4       0.97      0.97      0.97        36
+          5       0.97      0.97      0.97        37
+          6       1.00      1.00      1.00        34
+          7       0.94      0.92      0.93        37
+          8       0.86      0.93      0.89        40
+          9       0.96      0.81      0.88        27
+
+avg / total       0.95      0.95      0.95       355
+
+[[36  0  0  0  0  1  0  0  0  0]
+ [ 0 39  0  0  1  0  0  0  0  0]
+ [ 0  0 30  2  0  0  0  0  0  0]
+ [ 0  0  0 34  0  0  0  0  1  0]
+ [ 0  0  0  0 35  0  0  0  1  0]
+ [ 0  0  0  0  0 36  0  0  0  1]
+ [ 0  0  0  0  0  0 34  0  0  0]
+ [ 0  0  0  1  0  0  0 34  2  0]
+ [ 0  3  0  0  0  0  0  0 37  0]
+ [ 0  1  0  0  0  0  0  2  2 22]]
+</code></pre>
+
+<h2 id="artificial-neural-networks-classifier">Artificial Neural Networks Classifier</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPClassifier</span>
+<span class="n">mdl</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">&#39;lbfgs&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span>
+                     <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mdl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features_train</span><span class="p">,</span> <span class="n">labels_train</span><span class="p">)</span>
+<span class="c"># predict the output labels of test data</span>
+<span class="n">labels_pred</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features_test</span><span class="p">)</span>
+<span class="c"># print classification metrics </span>
+<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">labels_test</span><span class="p">,</span> <span class="n">labels_pred</span><span class="p">)</span>
+<span class="c"># print confusion matrix</span>
+<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">labels_test</span><span class="p">,</span> <span class="n">labels_pred</span><span class="p">)</span></code></pre></div>
+
+<pre><code>             precision    recall  f1-score   support
+
+          0       0.95      0.95      0.95        37
+          1       0.56      0.38      0.45        40
+          2       0.00      0.00      0.00        32
+          3       0.74      0.89      0.81        35
+          4       0.94      0.86      0.90        36
+          5       0.33      0.35      0.34        37
+          6       0.74      0.94      0.83        34
+          7       0.40      0.86      0.54        37
+          8       0.29      0.12      0.18        40
+          9       0.62      0.59      0.60        27
+
+avg / total       0.56      0.59      0.56       355
+
+[[35  0  0  0  0  0  1  0  0  1]
+ [ 2 15  3  0  0  0  3 10  1  6]
+ [ 0  2  0  0  0  8  0 22  0  0]
+ [ 0  0  0 31  0  1  0  0  1  2]
+ [ 0  0  0  0 31  1  4  0  0  0]
+ [ 0  5  0  2  0 13  0 13  4  0]
+ [ 0  0  0  0  2  0 32  0  0  0]
+ [ 0  0  1  0  0  1  2 32  1  0]
+ [ 0  5  5  7  0 12  1  4  5  1]
+ [ 0  0  1  2  0  3  0  0  5 16]]
+</code></pre>
+
+<h2 id="decision-tree-classifier">Decision Tree Classifier</h2>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
+<span class="n">mdl</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+<span class="n">mdl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features_train</span><span class="p">,</span> <span class="n">labels_train</span><span class="p">)</span>
+<span class="c"># predict the output labels of test data</span>
+<span class="n">labels_pred</span> <span class="o">=</span> <span class="n">mdl</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features_test</span><span class="p">)</span>
+<span class="c"># print classification metrics </span>
+<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">labels_test</span><span class="p">,</span> <span class="n">labels_pred</span><span class="p">)</span>
+<span class="c"># print confusion matrix</span>
+<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">labels_test</span><span class="p">,</span> <span class="n">labels_pred</span><span class="p">)</span></code></pre></div>
+
+<pre><code>             precision    recall  f1-score   support
+
+          0       0.97      0.92      0.94        37
+          1       0.89      0.82      0.86        40
+          2       0.87      0.84      0.86        32
+          3       0.72      0.66      0.69        35
+          4       0.79      0.72      0.75        36
+          5       0.83      0.92      0.87        37
+          6       0.92      0.97      0.94        34
+          7       0.89      0.92      0.91        37
+          8       0.79      0.85      0.82        40
+          9       0.62      0.67      0.64        27
+
+avg / total       0.83      0.83      0.83       355
+
+[[34  0  0  0  0  2  0  0  1  0]
+ [ 0 33  1  1  2  0  1  0  2  0]
+ [ 0  1 27  3  0  0  0  0  1  0]
+ [ 0  0  1 23  0  0  0  0  4  7]
+ [ 1  3  2  0 26  2  0  1  1  0]
+ [ 0  0  0  0  1 34  0  0  0  2]
+ [ 0  0  0  0  1  0 33  0  0  0]
+ [ 0  0  0  2  1  0  0 34  0  0]
+ [ 0  0  0  1  1  2  0  0 34  2]
+ [ 0  0  0  2  1  1  2  3  0 18]]
+</code></pre>
+
+
+        <hr />
+        
+        
+
+        <footer class="page-footer">
+          <div class="author-image">
+	<img src="/images/bio-photo.png" alt="Parneet Kaur">
+</div><!-- ./author-image -->
+<div class="author-content">
+	<h3 class="author-name" >Written by <span itemprop="author">Parneet Kaur</span></h3>
+	<p class="author-bio">Postdoc Scientist at Johnson & Johnson 
+ *Opinions are my own*</p>
+  <p class="author-follow"><a href="https://twitter.com/_parneetkaur" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @_parneetkaur</a></p>
+</div><!-- ./author-content -->
+          <div class="page-meta">
+	
+    <span><i class="fa fa-folder-open-o fa-fw"></i> &nbsp; <a href="http://parneetk.github.io/tag/python/" title="python" rel="tag">python</a></span>
+  
+	
+    <span><i class="fa fa-clock-o fa-fw"></i> &nbsp; Updated <time datetime="2017-01-08T17:00:00Z" itemprop="datePublished">January 08, 2017</time></span>
+  
+</div><!-- /.page-meta -->
+        </footer><!-- /.footer -->
+      </div><!-- /.content -->
+    </div><!-- /.inner-wrap -->
+    <div class="sidebar">
+		<h3>Recent Posts</h3>
+		<ul>
+			
+				<li><a href="/blog/CNN-TransferLearning1/">Transfer Learning using CNNs</a></dd>
+			
+				<li><a href="/blog/cnn-cifar10/">Convolutional Neural Networks (CNN) for CIFAR-10 Dataset</a></dd>
+			
+				<li><a href="/blog/cnn-mnist/">Convolutional Neural Networks (CNN) for MNIST Dataset</a></dd>
+			
+				<li><a href="/blog/neural-networks-in-keras/">Neural Networks in Keras</a></dd>
+			
+				<li><a href="/blog/intro-to-sklearn/">Intro to scikit-learn</a></dd>
+			
+				<li><a href="/blog/intro-to-matplotlib/">Intro to Matplotlib</a></dd>
+			
+				<li><a href="/blog/intro-to-numpy/">Intro to NumPy</a></dd>
+			
+				<li><a href="/blog/python_quickstart/">Python Quickstart </a></dd>
+			
+		</ul>
+		
+		<h3>All Tags</h3>
+		<ul>
+		
+			<a href="/tag/projects/">
+				projects
+			</a>
+		
+			<a href="/tag/research/">
+				research
+			</a>
+		
+			<a href="/tag/outreach/">
+				outreach
+			</a>
+		
+			<a href="/tag/python/">
+				python
+			</a>
+		
+			<a href="/tag/keras/">
+				keras
+			</a>
+		
+			<a href="/tag/deeplearning/">
+				deeplearning
+			</a>
+		
+		</ul>
+		 
+    </div><!-- /.sidebar -->
+  </article><!-- /.wrap -->
+  
+  <div class="wrap">
+    <div class="related-posts">
+  <h3>Read This Next</h3>
+  <div class="tiles">
+  
+    <article class="tile" itemscope itemtype="http://schema.org/Article">
+	<h2 class="post-title" itemprop="name"><a href="http://parneetk.github.io/blog/intro-to-matplotlib/">Intro to Matplotlib</a></h2>
+  <p class="entry-date date published"><time datetime="2017-01-07" itemprop="datePublished">January 07, 2017</time></p>
+	<p class="post-excerpt" itemprop="description">Plotting library for Python</p>
+</article><!-- /.tile -->
+  
+    <article class="tile" itemscope itemtype="http://schema.org/Article">
+	<h2 class="post-title" itemprop="name"><a href="http://parneetk.github.io/blog/intro-to-numpy/">Intro to NumPy</a></h2>
+  <p class="entry-date date published"><time datetime="2017-01-06" itemprop="datePublished">January 06, 2017</time></p>
+	<p class="post-excerpt" itemprop="description">Learn about array and matrix manipulation in Python</p>
+</article><!-- /.tile -->
+  
+    <article class="tile" itemscope itemtype="http://schema.org/Article">
+	<h2 class="post-title" itemprop="name"><a href="http://parneetk.github.io/blog/python_quickstart/">Python Quickstart </a></h2>
+  <p class="entry-date date published"><time datetime="2017-01-05" itemprop="datePublished">January 05, 2017</time></p>
+	<p class="post-excerpt" itemprop="description">Introduction to Python Basics</p>
+</article><!-- /.tile -->
+  
+    <article class="tile" itemscope itemtype="http://schema.org/Article">
+	<h2 class="post-title" itemprop="name"><a href="http://parneetk.github.io/blog/switching-from-matlab-to-python/">From MATLAB to Python</a></h2>
+  <p class="entry-date date published"><time datetime="2017-01-03" itemprop="datePublished">January 03, 2017</time></p>
+	<p class="post-excerpt" itemprop="description">My journey and installation instructions</p>
+</article><!-- /.tile -->
+  
+  </div>
+</div>
+  </div><!-- /.wrap -->
+  
+  
+  <div class="wrap">
+    <aside class="inner-wrap"><div class="comments">
+	<h3>Leave a Comment</h3>
+	<div id="disqus_thread"></div>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div><!-- /.comments --></aside>
+    
+  </div><!-- /.wrap -->
+  
+</div><!-- /#main -->
+
+
+      <footer role="contentinfo" id="site-footer">
+	<p class="copyright">&#169; 2018 Parneet Kaur</p>
+</footer>
+    </div>
+
+    <script src="/assets/main-df82fc05892ed74ebcc5daea31e5af0e.js"></script>
+
+    <!-- Google Universal Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-57868514-1', 'parneetk.github.io');
+      ga('require', 'linkid', 'linkid.js');
+      ga('require', 'displayfeatures');
+      ga('send', 'pageview');
+    </script>
+
+    
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'parneetk';
+      var disqus_title = 'Intro to scikit-learn';
+      var disqus_url = 'http://parneetk.github.io/blog/intro-to-sklearn/';
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    
+
+  </body>
+
+</html>
