@@ -2,12 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>STEM week at CCLC • Parneet Kaur</title>
-    
+    <title>From MATLAB to Python • Parneet Kaur</title>
+    <meta name="description" content="My journey and installation instructions">
     	
 		<!-- Twitter Cards -->
-		<meta name="twitter:title" content="STEM week at CCLC">
-		
+		<meta name="twitter:title" content="From MATLAB to Python">
+		<meta name="twitter:description" content="My journey and installation instructions">
 		<meta name="twitter:site" content="@_parneetkaur">
 		<meta name="twitter:creator" content="@_parneetkaur">
 		
@@ -18,11 +18,11 @@
 		<!-- Open Graph -->
 		<meta property="og:locale" content="en_US">
 		<meta property="og:type" content="article">
-		<meta property="og:title" content="STEM week at CCLC">
-		
-		<meta property="og:url" content="http://parneetk.github.io/outreach/cclc-stem-week/">
+		<meta property="og:title" content="From MATLAB to Python">
+		<meta property="og:description" content="My journey and installation instructions">
+		<meta property="og:url" content="http://parneetk.github.io/blog/switching-from-matlab-to-python/">
 		<meta property="og:site_name" content="Parneet Kaur">
-    <link rel="canonical" href="http://parneetk.github.io/outreach/cclc-stem-week/">
+    <link rel="canonical" href="http://parneetk.github.io/blog/switching-from-matlab-to-python/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="http://parneetk.github.io/sitemap.xml">
 
     <meta name="HandheldFriendly" content="True">
@@ -125,11 +125,11 @@
       <a href="http://parneetk.github.io" itemprop="url"><span itemprop="title">Home</span></a> › 
     </span>
     <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-      <a href="http://parneetk.github.io/outreach/" itemprop="url">
+      <a href="http://parneetk.github.io/blog/" itemprop="url">
         <span itemprop="title">
           
           
-            Outreach
+            Blog
               
           
         </span>
@@ -140,20 +140,102 @@
 
 
 
-        <h1><span>STEM week at CCLC</span></h1>
+        <h1><span>From MATLAB to Python</span></h1>
       </div><!-- /.page-title -->
     </div><!-- /.page-header -->
     <div class="inner-wrap">
       <div id="content" class="page-content" itemprop="articleBody">
-        <p>This week I spent some time with pre-schoolers and pre-K students doing some fun activities. We did ice-fishing and made toys vanish with polarizers. Their favorite was the holographic projection which they couldn’t touch! We designed towers with water cups and ice cream sticks. Each student also designed an emoji with her/his favorite profession at <a href="https://www.madewithcode.com/projects/emoji">Made with Code</a>.</p>
+        <p>Having started my graduate studies in computer vision and machine learning before deep learning became mainstream, I belong to the generation of grad students who used hand-crafted features. Most of the research code was available in MATLAB or C++ . My favorite libraries were VLFeat in MATLAB and OpenCV in C++. With the popularity of deep learning in computer vision since the introduction of well known <a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf">AlexNet</a>, tools like  <a href="http://torch.ch/">torch</a>, <a href="http://pytorch.org/">pytorch</a>, <a href="https://www.tensorflow.org/">tensorflow</a>, <a href="https://keras.io/">keras</a> and <a href="http://caffe.berkeleyvision.org/">caffe</a> are being used to solve many research problems. Python provides a friendly interface for using some of these tools. This motivated me to learn Python and once I started using it, I found libraries which make using Python easy even for non-deep learning projects. It was time to switch from MATLAB to Python! Stepping out of comfort zone was uneasy, but I learned new and useful skills. The more I used it, the more fun I had.</p>
 
-<p>This event was sponsored by a <a href="https://www.womentechmakers.com/">Women Techmakers</a> outreach grant.</p>
+<h3 id="why-python-instead-of-matlab">Why Python instead of MATLAB?</h3>
+<ul>
+  <li>MATLAB is expensive and you need to buy licences for each toolbox (unless your university provides it). Python is free and open source.</li>
+  <li>MATLAB toolboxes and functions can have a black box structure whereas in Python you can access the ufnction sin libraries. </li>
+  <li>Deep learning research is very fast paced and it makes sense to use the open source models and codes being made available by the research community, which widely uses Python instead of Matlab now.</li>
+  <li>In MATLAB, functions cannot be defined in the same script, each function is a separate file. In Python, functions can be defined in the same file and it makes writing code and debugging easier.</li>
+  <li>Python has better string handling.</li>
+  <li>Python has a huge variety of IDEs available.</li>
+</ul>
 
-<figure>
-	<img src="http://parneetk.github.io/images/outreach/cclc-stem-week-1.png" />
-	<figcaption></figcaption>
-</figure>
+<p>On this blog, I will share some code snippets that helped me in transitioning from MATLAB to Python. The blog posts assume familiarity with MATLAB or another programming language as well as concepts in computer vision and machine learning concepts. Let’s get started with setting up the development environment.</p>
 
+<h3 id="installations">Installations:</h3>
+<p>To get started, download and install <a href="https://www.anaconda.com/download/">Anaconda</a>. I use Python 3.x installation. Anaconda comes with useful Python packages: numpy, scipy, matplotlib, scikit-learn,, statsmodels and pandas. 
+You can check the versions in terminal. It should look something similar to the example below.</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">foo@bar:~<span class="nv">$ </span>conda -V
+conda 4.3.21
+foo@bar:~<span class="nv">$ </span>python -V
+Python 2.7.12 :: Anaconda custom <span class="o">(</span>x86_64<span class="o">)</span></code></pre></div>
+
+<p>Install OpenCV:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">foo@bar:~<span class="nv">$ </span>conda install -c conda-forge opencv</code></pre></div>
+
+<p>or</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">foo@bar:~<span class="nv">$ </span>conda install -c menpo opencv</code></pre></div>
+
+<p>Install required deep learning packages (check their corresponding websites for most recent installation commands):</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">foo@bar:~<span class="nv">$ </span>conda install pytorch torchvision -c pytorch
+foo@bar:~<span class="nv">$ </span>conda install -c conda-forge tensorflow
+foo@bar:~<span class="nv">$ </span>pip install keras
+foo@bar:~<span class="nv">$ </span>conda install theano</code></pre></div>
+
+<p>To check version of a package:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">foo@bar:~<span class="nv">$ </span>python
+&gt;&gt;&gt; import numpy
+&gt;&gt;&gt; print<span class="o">(</span>numpy.__version__<span class="o">)</span>
+1.14.2
+&gt;&gt;&gt; <span class="nb">exit</span><span class="o">()</span></code></pre></div>
+
+<p>To update all packages:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">foo@bar:~<span class="nv">$ </span>conda update --all</code></pre></div>
+
+<p>To update a single package:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">foo@bar:~<span class="nv">$ </span>conda update numpy</code></pre></div>
+
+<p>In case of installation errors, googling the error always helped me - mostly directing me to stack overflow.</p>
+
+<h3 id="development-environment">Development environment:</h3>
+<p>On MAC or Ubuntu, I use:</p>
+
+<ul>
+  <li>vim to edit my python files</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">foo@bar:~<span class="nv">$ </span>vim filename.py</code></pre></div>
+
+<ul>
+  <li>terminal to run python files </li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">foo@bar:~<span class="nv">$ </span>python filename.py</code></pre></div>
+
+<ul>
+  <li>
+    <p>ipdb as debugger</p>
+  </li>
+  <li>
+    <p>Jupyter notebooks for interactive interface: helpful for visualization or debugging with images</p>
+  </li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">foo@bar:~<span class="nv">$ </span>jupyter notebook</code></pre></div>
+
+<ul>
+  <li><a href="https://nbviewer.jupyter.org/">nbviewer</a> to share Jupyter notebooks</li>
+</ul>
+
+<p>You can also try basic features of Jupyter notebook with Python without installing it <a href="http://jupyter.org/try">here</a>.</p>
+
+<p>If you are looking for a more interactive IDE, check <a href="https://wiki.python.org/moin/IntegratedDevelopmentEnvironments">this link</a>.</p>
+
+<p>Looking forward to sharing the tips and tricks I am learning as code snippets!</p>
 
         <hr />
         
@@ -171,10 +253,10 @@
 </div><!-- ./author-content -->
           <div class="page-meta">
 	
-    <span><i class="fa fa-folder-open-o fa-fw"></i> &nbsp; <a href="http://parneetk.github.io/tag/outreach/" title="outreach" rel="tag">outreach</a></span>
+    <span><i class="fa fa-folder-open-o fa-fw"></i> &nbsp; <a href="http://parneetk.github.io/tag/python/" title="python" rel="tag">python</a></span>
   
 	
-    <span><i class="fa fa-clock-o fa-fw"></i> &nbsp; Updated <time datetime="2017-06-09T18:01:33Z" itemprop="datePublished">June 09, 2017</time></span>
+    <span><i class="fa fa-clock-o fa-fw"></i> &nbsp; Updated <time datetime="2017-01-03T17:00:00Z" itemprop="datePublished">January 03, 2017</time></span>
   
 </div><!-- /.page-meta -->
         </footer><!-- /.footer -->
@@ -240,27 +322,21 @@
   <div class="tiles">
   
     <article class="tile" itemscope itemtype="http://schema.org/Article">
-	<h2 class="post-title" itemprop="name"><a href="http://parneetk.github.io/outreach/swe-grad/">SWE Grad Mentorship Program</a></h2>
-  <p class="entry-date date published"><time datetime="2017-07-31" itemprop="datePublished">July 31, 2017</time></p>
-	<p class="post-excerpt" itemprop="description"></p>
+	<h2 class="post-title" itemprop="name"><a href="http://parneetk.github.io/blog/intro-to-matplotlib/">Intro to Matplotlib</a></h2>
+  <p class="entry-date date published"><time datetime="2017-01-07" itemprop="datePublished">January 07, 2017</time></p>
+	<p class="post-excerpt" itemprop="description">Plotting library for Python</p>
 </article><!-- /.tile -->
   
     <article class="tile" itemscope itemtype="http://schema.org/Article">
-	<h2 class="post-title" itemprop="name"><a href="http://parneetk.github.io/outreach/girl-day/">Girl Day 2017</a></h2>
-  <p class="entry-date date published"><time datetime="2017-02-23" itemprop="datePublished">February 23, 2017</time></p>
-	<p class="post-excerpt" itemprop="description"></p>
+	<h2 class="post-title" itemprop="name"><a href="http://parneetk.github.io/blog/intro-to-numpy/">Intro to NumPy</a></h2>
+  <p class="entry-date date published"><time datetime="2017-01-06" itemprop="datePublished">January 06, 2017</time></p>
+	<p class="post-excerpt" itemprop="description">Learn about array and matrix manipulation in Python</p>
 </article><!-- /.tile -->
   
     <article class="tile" itemscope itemtype="http://schema.org/Article">
-	<h2 class="post-title" itemprop="name"><a href="http://parneetk.github.io/outreach/app-inventor/">App Inventor Competition</a></h2>
-  <p class="entry-date date published"><time datetime="2017-02-04" itemprop="datePublished">February 04, 2017</time></p>
-	<p class="post-excerpt" itemprop="description"></p>
-</article><!-- /.tile -->
-  
-    <article class="tile" itemscope itemtype="http://schema.org/Article">
-	<h2 class="post-title" itemprop="name"><a href="http://parneetk.github.io/outreach/scratch-day/">Scratch Day</a></h2>
-  <p class="entry-date date published"><time datetime="2016-07-16" itemprop="datePublished">July 16, 2016</time></p>
-	<p class="post-excerpt" itemprop="description"></p>
+	<h2 class="post-title" itemprop="name"><a href="http://parneetk.github.io/blog/python_quickstart/">Python Quickstart </a></h2>
+  <p class="entry-date date published"><time datetime="2017-01-05" itemprop="datePublished">January 05, 2017</time></p>
+	<p class="post-excerpt" itemprop="description">Introduction to Python Basics</p>
 </article><!-- /.tile -->
   
   </div>
@@ -304,8 +380,8 @@
     <script type="text/javascript">
       /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
       var disqus_shortname = 'parneetk';
-      var disqus_title = 'STEM week at CCLC';
-      var disqus_url = 'http://parneetk.github.io/outreach/cclc-stem-week/';
+      var disqus_title = 'From MATLAB to Python';
+      var disqus_url = 'http://parneetk.github.io/blog/switching-from-matlab-to-python/';
 
       /* * * DON'T EDIT BELOW THIS LINE * * */
       (function () {

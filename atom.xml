@@ -11,7 +11,7 @@
 <subtitle>Personal website of Parneet Kaur.</subtitle>
 <link href="http://parneetk.github.io/atom.xml" rel="self"/>
 <link href="http://parneetk.github.io/" rel="alternate" type="text/html"/>
-<updated>2018-03-17T22:12:50-04:00</updated>
+<updated>2018-04-10T14:10:48-04:00</updated>
 <id>http://parneetk.github.io/</id>
 <author>
   <name>Parneet Kaur</name>
@@ -2345,6 +2345,114 @@ Hello World
 
 
     &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/blog/python_quickstart/&quot; rel=&quot;nofollow&quot;&gt;Python Quickstart &lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
+  </content>
+</entry>
+
+<entry>
+  <title>From MATLAB to Python</title>
+  <link href="http://parneetk.github.io/blog/switching-from-matlab-to-python/"/>
+  <updated>2017-01-03T17:00:00-05:00</updated>
+  <id>http://parneetk.github.io/blog/switching-from-matlab-to-python</id>
+  <author>
+    <name>Parneet Kaur</name>
+    <uri>http://parneetk.github.io/</uri>
+    
+  </author>
+  <content type="html">
+    
+    &lt;p&gt;Having started my graduate studies in computer vision and machine learning before deep learning became mainstream, I belong to the generation of grad students who used hand-crafted features. Most of the research code was available in MATLAB or C++ . My favorite libraries were VLFeat in MATLAB and OpenCV in C++. With the popularity of deep learning in computer vision since the introduction of well known &lt;a href=&quot;https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf&quot;&gt;AlexNet&lt;/a&gt;, tools like  &lt;a href=&quot;http://torch.ch/&quot;&gt;torch&lt;/a&gt;, &lt;a href=&quot;http://pytorch.org/&quot;&gt;pytorch&lt;/a&gt;, &lt;a href=&quot;https://www.tensorflow.org/&quot;&gt;tensorflow&lt;/a&gt;, &lt;a href=&quot;https://keras.io/&quot;&gt;keras&lt;/a&gt; and &lt;a href=&quot;http://caffe.berkeleyvision.org/&quot;&gt;caffe&lt;/a&gt; are being used to solve many research problems. Python provides a friendly interface for using some of these tools. This motivated me to learn Python and once I started using it, I found libraries which make using Python easy even for non-deep learning projects. It was time to switch from MATLAB to Python! Stepping out of comfort zone was uneasy, but I learned new and useful skills. The more I used it, the more fun I had.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-python-instead-of-matlab&quot;&gt;Why Python instead of MATLAB?&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;MATLAB is expensive and you need to buy licences for each toolbox (unless your university provides it). Python is free and open source.&lt;/li&gt;
+  &lt;li&gt;MATLAB toolboxes and functions can have a black box structure whereas in Python you can access the ufnction sin libraries. &lt;/li&gt;
+  &lt;li&gt;Deep learning research is very fast paced and it makes sense to use the open source models and codes being made available by the research community, which widely uses Python instead of Matlab now.&lt;/li&gt;
+  &lt;li&gt;In MATLAB, functions cannot be defined in the same script, each function is a separate file. In Python, functions can be defined in the same file and it makes writing code and debugging easier.&lt;/li&gt;
+  &lt;li&gt;Python has better string handling.&lt;/li&gt;
+  &lt;li&gt;Python has a huge variety of IDEs available.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;On this blog, I will share some code snippets that helped me in transitioning from MATLAB to Python. The blog posts assume familiarity with MATLAB or another programming language as well as concepts in computer vision and machine learning concepts. Let’s get started with setting up the development environment.&lt;/p&gt;
+
+&lt;h3 id=&quot;installations&quot;&gt;Installations:&lt;/h3&gt;
+&lt;p&gt;To get started, download and install &lt;a href=&quot;https://www.anaconda.com/download/&quot;&gt;Anaconda&lt;/a&gt;. I use Python 3.x installation. Anaconda comes with useful Python packages: numpy, scipy, matplotlib, scikit-learn,, statsmodels and pandas. 
+You can check the versions in terminal. It should look something similar to the example below.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;foo@bar:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;conda -V
+conda 4.3.21
+foo@bar:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python -V
+Python 2.7.12 :: Anaconda custom &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;x86_64&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Install OpenCV:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;foo@bar:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;conda install -c conda-forge opencv&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;foo@bar:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;conda install -c menpo opencv&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Install required deep learning packages (check their corresponding websites for most recent installation commands):&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;foo@bar:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;conda install pytorch torchvision -c pytorch
+foo@bar:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;conda install -c conda-forge tensorflow
+foo@bar:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pip install keras
+foo@bar:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;conda install theano&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To check version of a package:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;foo@bar:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python
+&amp;gt;&amp;gt;&amp;gt; import numpy
+&amp;gt;&amp;gt;&amp;gt; print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;numpy.__version__&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+1.14.2
+&amp;gt;&amp;gt;&amp;gt; &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To update all packages:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;foo@bar:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;conda update --all&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To update a single package:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;foo@bar:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;conda update numpy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In case of installation errors, googling the error always helped me - mostly directing me to stack overflow.&lt;/p&gt;
+
+&lt;h3 id=&quot;development-environment&quot;&gt;Development environment:&lt;/h3&gt;
+&lt;p&gt;On MAC or Ubuntu, I use:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;vim to edit my python files&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;foo@bar:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vim filename.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;terminal to run python files &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;foo@bar:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python filename.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;ipdb as debugger&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Jupyter notebooks for interactive interface: helpful for visualization or debugging with images&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;foo@bar:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jupyter notebook&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://nbviewer.jupyter.org/&quot;&gt;nbviewer&lt;/a&gt; to share Jupyter notebooks&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can also try basic features of Jupyter notebook with Python without installing it &lt;a href=&quot;http://jupyter.org/try&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you are looking for a more interactive IDE, check &lt;a href=&quot;https://wiki.python.org/moin/IntegratedDevelopmentEnvironments&quot;&gt;this link&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Looking forward to sharing the tips and tricks I am learning as code snippets!&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://parneetk.github.io/blog/switching-from-matlab-to-python/&quot; rel=&quot;nofollow&quot;&gt;From MATLAB to Python&lt;/a&gt; was originally published by &lt;a href=&quot;http://parneetk.github.io/about/&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt; on &lt;a href=&quot;http://parneetk.github.io&quot; rel=&quot;nofollow&quot;&gt;Parneet Kaur&lt;/a&gt;.&lt;/p&gt;	
   </content>
 </entry>
 
